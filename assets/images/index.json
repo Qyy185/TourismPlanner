@@ -1,0 +1,2449 @@
+{
+  "source": "百度图片搜索（版权归原作者，仅限学习与内部演示）",
+  "interests": [
+    "自然风光",
+    "历史文化",
+    "美食探店",
+    "购物娱乐",
+    "亲子游",
+    "户外探险"
+  ],
+  "destinations": [
+    {
+      "region": "澳门",
+      "category": "特别行政区",
+      "images": [
+        {
+          "spot": "大三巴牌坊",
+          "file": "特别行政区/澳门/01-大三巴牌坊.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "历史文化",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "妈阁庙",
+          "file": "特别行政区/澳门/02-妈阁庙.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "澳门塔",
+          "file": "特别行政区/澳门/03-澳门塔.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "葡式蛋挞",
+          "raw_title": "葡式蛋挞",
+          "file": "特别行政区/澳门/04-葡式蛋挞.jpg",
+          "source_url": "https://img1.baidu.com/it/u=2607332416,110802957&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=667",
+          "hit_title": "澳门人最爱的10家葡式蛋挞店!香甜软糯,传统美味!",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "路氹城",
+          "raw_title": "路氹城（威尼斯人、巴黎人、伦敦人、银河）",
+          "file": "特别行政区/澳门/05-路氹城.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2654584217,3552448186&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=667",
+          "hit_title": "澳门路氹城街景",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "路环市区与黑沙海滩",
+          "raw_title": "路环市区与黑沙海滩",
+          "file": "特别行政区/澳门/06-路环市区与黑沙海滩.jpg",
+          "source_url": "https://img1.baidu.com/it/u=3475091243,1764905402&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=653",
+          "hit_title": "我当时是直接坐到第二个点——路环市区站,下巴士之后扑面而",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "购物娱乐",
+            "亲子游"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "香港",
+      "category": "特别行政区",
+      "images": [
+        {
+          "spot": "维多利亚港",
+          "file": "特别行政区/香港/01-维多利亚港.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "太平山顶",
+          "file": "特别行政区/香港/02-太平山顶.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "香港迪士尼乐园",
+          "file": "特别行政区/香港/03-香港迪士尼乐园.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "购物娱乐",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "中环与上环",
+          "raw_title": "中环与上环（老香港街区）",
+          "file": "特别行政区/香港/04-中环与上环.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2407720655,463363653&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=666",
+          "hit_title": "教你如何高效玩转香港:上环/中环/湾仔/铜锣湾篇  第二章:香港岛区",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "港式粤菜",
+          "raw_title": "粤菜的核心区之一",
+          "file": "特别行政区/香港/05-港式粤菜.jpg",
+          "source_url": "https://img0.baidu.com/it/u=2318517702,2429586652&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=647",
+          "hit_title": "香港龙凤楼:老洋房里的地道粤菜体验",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "茶餐厅",
+          "raw_title": "茶餐厅",
+          "file": "特别行政区/香港/06-茶餐厅.jpg",
+          "source_url": "https://img1.baidu.com/it/u=3184317374,625270671&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=652",
+          "hit_title": "香港壹号茶餐厅:美味体验分享",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "上海",
+      "category": "直辖市",
+      "images": [
+        {
+          "spot": "外滩",
+          "file": "直辖市/上海/01-外滩.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "历史文化",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "东方明珠广播电视塔",
+          "file": "直辖市/上海/02-东方明珠广播电视塔.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "历史文化",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "上海迪士尼乐园",
+          "file": "直辖市/上海/03-上海迪士尼乐园.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "历史文化",
+            "美食探店",
+            "亲子游"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "北京",
+      "category": "直辖市",
+      "images": [
+        {
+          "spot": "故宫博物院",
+          "file": "直辖市/北京/01-故宫博物院.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "历史文化",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "八达岭长城",
+          "file": "直辖市/北京/02-八达岭长城.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "慕田峪长城",
+          "file": "直辖市/北京/03-慕田峪长城.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光"
+          ]
+        },
+        {
+          "spot": "北京烤鸭",
+          "raw_title": "北京烤鸭",
+          "file": "直辖市/北京/04-北京烤鸭.jpg",
+          "source_url": "https://img2.baidu.com/it/u=1096630224,759369380&fm=253&fmt=auto&app=138&f=JPEG?w=606&h=500",
+          "hit_title": "京味传奇:探寻北京烤鸭,品味京城舌尖上的金灿酥香",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "前门 / 王府井片区",
+          "raw_title": "前门 / 王府井片区",
+          "file": "直辖市/北京/05-前门 _ 王府井片区.jpg",
+          "source_url": "https://img0.baidu.com/it/u=3402842974,3574745636&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=667",
+          "hit_title": "北京前门大街",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "景山公园",
+          "raw_title": "景山公园",
+          "file": "直辖市/北京/06-景山公园.jpg",
+          "source_url": "https://img0.baidu.com/it/u=4087879583,2693111293&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=653",
+          "hit_title": "🌇 景山公园:北京日落观赏的绝佳地点 🌇",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "亲子游",
+            "户外探险"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "天津",
+      "category": "直辖市",
+      "images": [
+        {
+          "spot": "五大道",
+          "file": "直辖市/天津/01-五大道.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "历史文化",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "意式风情区",
+          "file": "直辖市/天津/02-意式风情区.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "历史文化",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "古文化街",
+          "file": "直辖市/天津/03-古文化街.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "历史文化",
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "天津之眼",
+          "raw_title": "天津之眼（永乐桥摩天轮）",
+          "file": "直辖市/天津/04-天津之眼.jpg",
+          "source_url": "https://img2.baidu.com/it/u=1174406658,1116008395&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
+          "hit_title": " p>天津之眼(the tientsin eye),全称天津永乐桥摩天轮(the yongle",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "历史文化",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "泰达航母主题公园",
+          "raw_title": "泰达航母主题公园",
+          "file": "直辖市/天津/05-泰达航母主题公园.jpg",
+          "source_url": "https://img1.baidu.com/it/u=1677191005,1665027401&fm=253&fmt=auto&app=138&f=JPEG?w=665&h=500",
+          "hit_title": "🌊亲子必打卡!天津泰达航母主题公园一日游攻略",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "盘山",
+          "raw_title": "盘山",
+          "file": "直辖市/天津/06-盘山.jpg",
+          "source_url": "https://img2.baidu.com/it/u=1151013590,1979947942&fm=253&fmt=auto&app=120&f=JPEG?w=823&h=800",
+          "hit_title": "探秘盘山:天津的自然与人文奇观",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "历史文化",
+            "户外探险"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "重庆",
+      "category": "直辖市",
+      "images": [
+        {
+          "spot": "洪崖洞",
+          "file": "直辖市/重庆/01-洪崖洞.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "购物娱乐",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "解放碑",
+          "file": "直辖市/重庆/02-解放碑.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "历史文化",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "李子坝轻轨穿楼",
+          "file": "直辖市/重庆/03-李子坝轻轨穿楼.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "南山一棵树观景台",
+          "raw_title": "南山一棵树观景台",
+          "file": "直辖市/重庆/04-南山一棵树观景台.jpg",
+          "source_url": "https://img1.baidu.com/it/u=12269274,793822923&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=624",
+          "hit_title": "南山一棵树:重庆夜景的神级观礼台攻略",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "重庆火锅",
+          "raw_title": "重庆火锅",
+          "file": "直辖市/重庆/05-重庆火锅.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2591829099,3333338047&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1067",
+          "hit_title": "而在众多火锅中,重庆火锅凭借独特的麻辣鲜香,牢牢占据着 \"顶流",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "山城步道",
+          "raw_title": "山城步道",
+          "file": "直辖市/重庆/06-山城步道.jpg",
+          "source_url": "https://img1.baidu.com/it/u=1446716041,3445338339&fm=253&fmt=auto&app=138&f=JPEG?w=514&h=500",
+          "hit_title": "探索重庆第三步道:山城步道的独特魅力",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "云南",
+      "category": "省",
+      "images": [
+        {
+          "spot": "石林风景区",
+          "file": "省/云南/01-石林风景区.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "滇池",
+          "file": "省/云南/02-滇池.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "购物娱乐",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "大理古城",
+          "file": "省/云南/03-大理古城.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "历史文化",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "过桥米线",
+          "raw_title": "过桥米线",
+          "file": "省/云南/04-过桥米线.jpg",
+          "source_url": "https://img2.baidu.com/it/u=1274077941,4283425494&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=735",
+          "hit_title": "昆明过桥米线哪家强?这家回头客超多想吃你就去.",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "玉龙雪山",
+          "raw_title": "玉龙雪山（丽江）",
+          "file": "省/云南/05-玉龙雪山.jpg",
+          "source_url": "https://img0.baidu.com/it/u=101859880,395138553&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=655",
+          "hit_title": "探秘云南玉龙雪山:自然与文化的完美融合",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "台湾",
+      "category": "省",
+      "images": [
+        {
+          "spot": "台北故宫博物院",
+          "file": "省/台湾/01-台北故宫博物院.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "历史文化",
+            "购物娱乐",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "台北 101",
+          "file": "省/台湾/02-台北 101.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "九份",
+          "file": "省/台湾/03-九份.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "日月潭",
+          "raw_title": "日月潭",
+          "file": "省/台湾/04-日月潭.jpg",
+          "source_url": "https://img2.baidu.com/it/u=3116070237,1157614788&fm=253&fmt=auto&app=120&f=JPEG?w=1101&h=800",
+          "hit_title": "台湾日月潭必打卡美食与游玩全攻略",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光"
+          ]
+        },
+        {
+          "spot": "台湾夜市小吃",
+          "raw_title": "夜市与小吃是核心体验",
+          "file": "省/台湾/05-台湾夜市小吃.jpg",
+          "source_url": "https://img2.baidu.com/it/u=3144891947,1144206111&fm=253&fmt=auto&app=120&f=JPEG?w=814&h=800",
+          "hit_title": "东裕夜市:台湾美食的绝佳体验",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "太鲁阁峡谷与花莲",
+          "raw_title": "太鲁阁峡谷与花莲",
+          "file": "省/台湾/06-太鲁阁峡谷与花莲.jpg",
+          "source_url": "https://img1.baidu.com/it/u=836733248,3524236637&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=611",
+          "hit_title": "🌟太鲁阁砂卡礑步道:探索花莲的自然奇观🌟",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "台南小吃",
+          "raw_title": "台南小吃",
+          "file": "省/台湾/07-台南小吃.jpg",
+          "source_url": "https://img1.baidu.com/it/u=1823113189,2098892886&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=653",
+          "hit_title": "台南担仔面:值得一试的小吃推荐 一直想去尝试的台湾菜小店终于有机会",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "吉林",
+      "category": "省",
+      "images": [
+        {
+          "spot": "长白山北坡",
+          "file": "省/吉林/01-长白山北坡.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "长白山西坡",
+          "file": "省/吉林/02-长白山西坡.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "长白山南坡",
+          "file": "省/吉林/03-长白山南坡.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "冷面",
+          "raw_title": "冷面",
+          "file": "省/吉林/04-冷面.jpg",
+          "source_url": "https://img1.baidu.com/it/u=3597201628,4164126325&fm=253&fmt=auto&app=120&f=JPEG?w=1200&h=800",
+          "hit_title": "吉林旅游特产篇:延吉冷面  延吉冷面作为\"中国十大面条\"之一,是朝鲜族",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "延吉",
+          "raw_title": "延吉（朝鲜族民俗与美食之都）",
+          "file": "省/吉林/05-延吉.jpg",
+          "source_url": "https://img0.baidu.com/it/u=3071635275,3685965818&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500",
+          "hit_title": "延吉市是吉林省延边朝鲜族自治州的首府,作为我国唯一的朝鲜族自治州",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化",
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "二道白河",
+          "raw_title": "二道白河",
+          "file": "省/吉林/06-二道白河.jpg",
+          "source_url": "https://img0.baidu.com/it/u=3586774681,187604509&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=656",
+          "hit_title": "吉林二道白河镇:宁静与自然的完美结合",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "净月潭",
+          "raw_title": "净月潭",
+          "file": "省/吉林/07-净月潭.jpg",
+          "source_url": "https://img1.baidu.com/it/u=3821758744,4162112955&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=653",
+          "hit_title": "长春净月潭:冬日暖阳下的自然乐园",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "亲子游"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "四川",
+      "category": "省",
+      "images": [
+        {
+          "spot": "成都大熊猫繁育研究基地",
+          "file": "省/四川/01-成都大熊猫繁育研究基地.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "宽窄巷子",
+          "file": "省/四川/02-宽窄巷子.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "武侯祠",
+          "file": "省/四川/03-武侯祠.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "历史文化",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "峨眉山",
+          "raw_title": "峨眉山",
+          "file": "省/四川/04-峨眉山.jpg",
+          "source_url": "https://img2.baidu.com/it/u=1152090297,1757760673&fm=253&fmt=auto&app=138&f=JPEG?w=410&h=547",
+          "hit_title": "我是峨眉江湖百晓生#  这个暑假,来四川峨眉山游玩,生态猴区可不要",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "稻城亚丁",
+          "raw_title": "稻城亚丁",
+          "file": "省/四川/05-稻城亚丁.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2542786430,2054822902&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=652",
+          "hit_title": "四川稻城亚丁旅行攻略:揭秘绝美风光与独特民俗 四川稻城亚丁旅行攻略",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "安徽",
+      "category": "省",
+      "images": [
+        {
+          "spot": "黄山风景区",
+          "file": "省/安徽/01-黄山风景区.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "亲子游",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "宏村",
+          "file": "省/安徽/02-宏村.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "历史文化",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "西递",
+          "file": "省/安徽/03-西递.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "历史文化",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "臭鳜鱼",
+          "raw_title": "臭鳜鱼",
+          "file": "省/安徽/04-臭鳜鱼.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2787695626,563548350&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=812",
+          "hit_title": "🐟🥘 袁成亮笔下的安徽臭鳜鱼",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "汤口",
+          "raw_title": "汤口",
+          "file": "省/安徽/05-汤口.jpg",
+          "source_url": "https://img0.baidu.com/it/u=2522742342,2716295192&fm=253&fmt=auto&app=138&f=JPEG?w=514&h=500",
+          "hit_title": "🍂黄山脚下的汤口镇:一次心灵的栖息之旅🍂",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "购物娱乐"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "山东",
+      "category": "省",
+      "images": [
+        {
+          "spot": "栈桥",
+          "file": "省/山东/01-栈桥.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "自然风光"
+          ]
+        },
+        {
+          "spot": "八大关",
+          "file": "省/山东/02-八大关.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "崂山",
+          "file": "省/山东/03-崂山.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "购物娱乐",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "糖醋鲤鱼",
+          "raw_title": "糖醋鲤鱼",
+          "file": "省/山东/04-糖醋鲤鱼.jpg",
+          "source_url": "https://img1.baidu.com/it/u=640441454,3018039552&fm=253&fmt=auto&app=120&f=JPEG?w=921&h=800",
+          "hit_title": "🐟 糖醋鲤鱼:传统与现代的完美结合 🍯",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "趵突泉、大明湖与千佛山",
+          "raw_title": "趵突泉、大明湖与千佛山（济南）",
+          "file": "省/山东/05-趵突泉、大明湖与千佛山.jpg",
+          "source_url": "https://img2.baidu.com/it/u=1911802749,1136880776&fm=253&fmt=auto&app=120&f=JPEG?w=1026&h=739",
+          "hit_title": "5月1日起,济南趵突泉公园延长开放时间",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "亲子游",
+            "户外探险"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "山西",
+      "category": "省",
+      "images": [
+        {
+          "spot": "平遥古城",
+          "file": "省/山西/01-平遥古城.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "云冈石窟",
+          "file": "省/山西/02-云冈石窟.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "五台山",
+          "file": "省/山西/03-五台山.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "刀削面",
+          "raw_title": "刀削面",
+          "file": "省/山西/04-刀削面.jpg",
+          "source_url": "https://img2.baidu.com/it/u=1908829448,1313768050&fm=253&fmt=auto&app=138&f=JPEG?w=772&h=500",
+          "hit_title": "🍜 探索山西刀削面的美味与历史!",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "迎泽/柳巷片区",
+          "raw_title": "迎泽/柳巷片区",
+          "file": "省/山西/05-迎泽_柳巷片区.jpg",
+          "source_url": "https://img0.baidu.com/it/u=4028563007,1042015325&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=1067",
+          "hit_title": "山西省太原市迎泽区迎泽大街,打卡了,无美颜无滤镜,一股子北京 - 抖音",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "太行山大峡谷",
+          "raw_title": "太行山大峡谷（长治·壶关）",
+          "file": "省/山西/06-太行山大峡谷.jpg",
+          "source_url": "https://img0.baidu.com/it/u=2468182194,2383146518&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=878",
+          "hit_title": "🌄 探秘山西:太行山大峡谷的绝美风光 🌳",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化",
+            "亲子游",
+            "户外探险"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "广东",
+      "category": "省",
+      "images": [
+        {
+          "spot": "广州塔",
+          "file": "省/广东/01-广州塔.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "历史文化",
+            "购物娱乐",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "陈家祠",
+          "file": "省/广东/02-陈家祠.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "历史文化",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "永庆坊",
+          "file": "省/广东/03-永庆坊.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光"
+          ]
+        },
+        {
+          "spot": "韶关丹霞山",
+          "raw_title": "韶关丹霞山",
+          "file": "省/广东/04-韶关丹霞山.jpg",
+          "source_url": "https://img2.baidu.com/it/u=4041397874,3095155196&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=652",
+          "hit_title": "广东韶关丹霞山两日游全攻略",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "历史文化",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "早茶",
+          "raw_title": "早茶",
+          "file": "省/广东/05-早茶.jpg",
+          "source_url": "https://img1.baidu.com/it/u=737580981,3986698767&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=650",
+          "hit_title": "广州早茶:43年老字号的味蕾之旅",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "深圳世界之窗与深圳湾",
+          "raw_title": "深圳世界之窗与深圳湾",
+          "file": "省/广东/06-深圳世界之窗与深圳湾.jpg",
+          "source_url": "https://img1.baidu.com/it/u=3880107029,2902236615&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=653",
+          "hit_title": "深圳南山世界之窗游玩全攻略",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "购物娱乐"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "江苏",
+      "category": "省",
+      "images": [
+        {
+          "spot": "中山陵",
+          "file": "省/江苏/01-中山陵.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "历史文化",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "明孝陵",
+          "file": "省/江苏/02-明孝陵.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "夫子庙—秦淮风光带",
+          "file": "省/江苏/03-夫子庙—秦淮风光带.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "拙政园",
+          "raw_title": "拙政园（苏州）",
+          "file": "省/江苏/04-拙政园.jpg",
+          "source_url": "https://img2.baidu.com/it/u=3723687417,2749055936&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1044",
+          "hit_title": "苏州拙政园:秋天的绝美之地",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "盐水鸭",
+          "raw_title": "盐水鸭",
+          "file": "省/江苏/05-盐水鸭.jpg",
+          "source_url": "https://img0.baidu.com/it/u=740525803,3564877883&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500",
+          "hit_title": "南京盐水鸭,这道享有盛名的金陵美食,历经两千五百多年的岁月沉淀",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "老门东",
+          "raw_title": "老门东",
+          "file": "省/江苏/06-老门东.jpg",
+          "source_url": "https://img0.baidu.com/it/u=2437590639,3075238453&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=656",
+          "hit_title": "南京老门东:历史与现代的交汇点 🏛️",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "瘦西湖",
+          "raw_title": "瘦西湖（扬州）",
+          "file": "省/江苏/07-瘦西湖.jpg",
+          "source_url": "https://img1.baidu.com/it/u=2056560206,832874866&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1045",
+          "hit_title": "🌸 扬州瘦西湖:精致园林的典范 🌿",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "平江路 / 观前街",
+          "raw_title": "平江路 / 观前街",
+          "file": "省/江苏/08-平江路 _ 观前街.jpg",
+          "source_url": "https://img1.baidu.com/it/u=3047761546,2907961302&fm=253&fmt=auto&app=120&f=JPEG?w=823&h=800",
+          "hit_title": "苏州平江路:水乡风情摄影圣地",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "购物娱乐"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "江西",
+      "category": "省",
+      "images": [
+        {
+          "spot": "滕王阁",
+          "file": "省/江西/01-滕王阁.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "历史文化",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "庐山",
+          "file": "省/江西/02-庐山.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "历史文化",
+            "美食探店",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "鄱阳湖",
+          "file": "省/江西/03-鄱阳湖.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "红谷滩 / 八一广场",
+          "raw_title": "红谷滩 / 八一广场",
+          "file": "省/江西/04-红谷滩 _ 八一广场.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2740913748,2444698182&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=736",
+          "hit_title": "江西城市暴击北方城市?实拍南昌红谷滩:7000多亿gdp竟有这配置",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "购物娱乐"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "河北",
+      "category": "省",
+      "images": [
+        {
+          "spot": "承德避暑山庄及外八庙",
+          "file": "省/河北/01-承德避暑山庄及外八庙.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "历史文化",
+            "亲子游",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "北戴河",
+          "file": "省/河北/02-北戴河.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "购物娱乐",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "山海关",
+          "file": "省/河北/03-山海关.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "历史文化",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "驴肉火烧",
+          "raw_title": "驴肉火烧",
+          "file": "省/河北/04-驴肉火烧.jpg",
+          "source_url": "https://img1.baidu.com/it/u=3730036764,3949152834&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=989",
+          "hit_title": "在保定清晨的巷口,一只刚出炉的驴肉火烧烫得人手忙脚乱,却舍不得放下",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "河南",
+      "category": "省",
+      "images": [
+        {
+          "spot": "少林寺",
+          "file": "省/河南/01-少林寺.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "只有河南·戏剧幻城",
+          "file": "省/河南/02-只有河南·戏剧幻城.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "龙门石窟",
+          "file": "省/河南/03-龙门石窟.jpg",
+          "is_cover": false,
+          "confidence": "cached",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "烩面",
+          "raw_title": "烩面",
+          "file": "省/河南/04-烩面.jpg",
+          "source_url": "https://img1.baidu.com/it/u=2584178064,1335114726&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889",
+          "hit_title": "河南烩面吃着真得劲,尤其是拉厚拉宽的,汤鲜肉香面筋道!-度小视",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "洛阳牡丹",
+          "raw_title": "洛阳牡丹（王城公园 / 国家牡丹园）",
+          "file": "省/河南/05-洛阳牡丹.jpg",
+          "source_url": "https://img1.baidu.com/it/u=658401623,3083444586&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1181",
+          "hit_title": "洛阳牡丹盛花期观赏全攻略",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "云台山",
+          "raw_title": "云台山（焦作）",
+          "file": "省/河南/06-云台山.jpg",
+          "source_url": "https://img0.baidu.com/it/u=1442369874,3089273218&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889",
+          "hit_title": "河南焦作云台山景区宣布3月对河南,山西,山东,河北4个省份免门. .",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "浙江",
+      "category": "省",
+      "images": [
+        {
+          "spot": "西湖",
+          "file": "省/浙江/01-西湖.jpg",
+          "is_cover": true,
+          "confidence": "cached",
+          "interests": [
+            "自然风光",
+            "美食探店",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "灵隐寺",
+          "raw_title": "灵隐寺与飞来峰（杭州）",
+          "file": "省/浙江/02-灵隐寺.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2721627101,4039863398&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=644",
+          "hit_title": "杭州灵隐寺:祈福求平安的圣地",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "西溪国家湿地公园",
+          "raw_title": "西溪国家湿地公园（杭州）",
+          "file": "省/浙江/03-西溪国家湿地公园.jpg",
+          "source_url": "https://img1.baidu.com/it/u=611527455,2332794923&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1044",
+          "hit_title": "🌳探秘杭州西溪湿地🌿",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "武林广场 / 凤起路",
+          "raw_title": "武林广场 / 凤起路",
+          "file": "省/浙江/04-武林广场 _ 凤起路.jpg",
+          "source_url": "https://img0.baidu.com/it/u=579580296,3384255072&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=667",
+          "hit_title": "杭州武林广场,是杭州这座城市的心脏,她的周边高楼林立间又不失江南",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "购物娱乐"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "海南",
+      "category": "省",
+      "images": [
+        {
+          "spot": "亚龙湾",
+          "raw_title": "亚龙湾",
+          "file": "省/海南/01-亚龙湾.jpg",
+          "source_url": "https://img1.baidu.com/it/u=2679933393,2910420742&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1044",
+          "hit_title": "探索三亚:亚龙湾的蒂芙尼蓝海水",
+          "is_cover": true,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "蜈支洲岛",
+          "raw_title": "蜈支洲岛",
+          "file": "省/海南/02-蜈支洲岛.jpg",
+          "source_url": "https://img0.baidu.com/it/u=785330058,2841263852&fm=253&fmt=auto&app=120&f=JPEG?w=1234&h=800",
+          "hit_title": "海南蜈支洲岛",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "天涯海角",
+          "raw_title": "天涯海角",
+          "file": "省/海南/03-天涯海角.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2032450627,750123675&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
+          "hit_title": "天涯海角景区位于三亚市西南端,距离市区约23公里,总面积为10.",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光"
+          ]
+        },
+        {
+          "spot": "海鲜",
+          "raw_title": "海鲜",
+          "file": "省/海南/04-海鲜.jpg",
+          "source_url": "https://img0.baidu.com/it/u=3850839962,3361110959&fm=253&fmt=auto&app=138&f=JPEG?w=506&h=500",
+          "hit_title": "海南东方市海鲜市场体验:避坑指南",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "南山文化旅游区",
+          "raw_title": "南山文化旅游区",
+          "file": "省/海南/05-南山文化旅游区.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2125886326,1239262970&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=959",
+          "hit_title": "南海观世音圣象,即三亚南山海上观音,位于海南三亚南山文化旅游区,是",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "历史文化",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "五指山",
+          "raw_title": "五指山（中线热带雨林）",
+          "file": "省/海南/06-五指山.jpg",
+          "source_url": "https://img1.baidu.com/it/u=4245133077,627147681&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=692",
+          "hit_title": "\"不到五指山,不算到海南\",足以见证其在海南的江湖地位!",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "亲子游",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "儋州东坡书院与海花岛",
+          "raw_title": "儋州东坡书院与海花岛",
+          "file": "省/海南/07-儋州东坡书院与海花岛.jpg",
+          "source_url": "https://img2.baidu.com/it/u=1193105563,1716981187&fm=253&fmt=auto&app=138&f=JPEG?w=689&h=500",
+          "hit_title": "探访海南儋州的东坡书院 东坡书院,一个充满历史韵味的地方,位于海南",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "历史文化",
+            "购物娱乐"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "湖北",
+      "category": "省",
+      "images": [
+        {
+          "spot": "黄鹤楼",
+          "raw_title": "黄鹤楼（武汉）",
+          "file": "省/湖北/01-黄鹤楼.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2368141167,2915807742&fm=253&fmt=auto&app=138&f=JPEG?w=770&h=500",
+          "hit_title": "🏯探秘湖北黄鹤楼🌉",
+          "is_cover": true,
+          "confidence": "high",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "东湖",
+          "raw_title": "东湖（武汉）",
+          "file": "省/湖北/02-东湖.jpg",
+          "source_url": "https://img1.baidu.com/it/u=3638219111,1055531664&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1067",
+          "hit_title": "东湖听涛日出🌅碧潭观鱼必去",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "湖北省博物馆",
+          "raw_title": "湖北省博物馆（武汉）",
+          "file": "省/湖北/03-湖北省博物馆.jpg",
+          "source_url": "https://img1.baidu.com/it/u=649698666,1753855717&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=653",
+          "hit_title": "武汉必打卡|湖北省博物馆新馆探秘 湖北省博物馆,坐落在风景如画的",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "历史文化",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "热干面",
+          "raw_title": "热干面",
+          "file": "省/湖北/04-热干面.jpg",
+          "source_url": "https://img1.baidu.com/it/u=633881772,3874760706&fm=253&fmt=auto&app=138&f=JPEG?w=514&h=500",
+          "hit_title": "湖北热干面diy教程,简单又美味!",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "江汉路步行街",
+          "raw_title": "江汉路步行街（武汉）",
+          "file": "省/湖北/05-江汉路步行街.jpg",
+          "source_url": "https://img2.baidu.com/it/u=281704597,523354205&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1046",
+          "hit_title": "武汉江汉路步行街:夜生活与美食的完美结合",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "恩施大峡谷",
+          "raw_title": "恩施大峡谷（恩施）",
+          "file": "省/湖北/06-恩施大峡谷.jpg",
+          "source_url": "https://img0.baidu.com/it/u=2579455365,4235516446&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1048",
+          "hit_title": "湖北恩施大峡谷:大自然的震撼之旅",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "美食探店",
+            "户外探险"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "湖南",
+      "category": "省",
+      "images": [
+        {
+          "spot": "岳麓山",
+          "raw_title": "岳麓山与橘子洲",
+          "file": "省/湖南/01-岳麓山.jpg",
+          "source_url": "https://img2.baidu.com/it/u=4171188647,2508823160&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=738",
+          "hit_title": "岳麓山的秘密湖泊:穿石坡湖的传奇与美景",
+          "is_cover": true,
+          "confidence": "high",
+          "interests": [
+            "美食探店",
+            "购物娱乐",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "湖南博物院",
+          "raw_title": "湖南博物院",
+          "file": "省/湖南/02-湖南博物院.jpg",
+          "source_url": "https://img2.baidu.com/it/u=700833205,1451670770&fm=253&fmt=auto&app=138&f=JPEG?w=686&h=500",
+          "hit_title": "湖南博物院参观心得 去湖南博物院,观瞻辛追夫人,一眼千年.",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "历史文化",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "张家界国家森林公园",
+          "raw_title": "张家界国家森林公园（武陵源核心景区）",
+          "file": "省/湖南/03-张家界国家森林公园.jpg",
+          "source_url": "https://img0.baidu.com/it/u=121388351,2284060549&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=653",
+          "hit_title": "张家界森林公园两天一夜全攻略",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化",
+            "亲子游",
+            "户外探险"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "甘肃",
+      "category": "省",
+      "images": [
+        {
+          "spot": "敦煌莫高窟",
+          "raw_title": "敦煌莫高窟（酒泉·敦煌）",
+          "file": "省/甘肃/01-敦煌莫高窟.jpg",
+          "source_url": "https://img0.baidu.com/it/u=1927182627,3689015517&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=653",
+          "hit_title": "🏯敦煌莫高窟:千年之旅,值得一去!",
+          "is_cover": true,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "鸣沙山月牙泉",
+          "raw_title": "鸣沙山月牙泉（酒泉·敦煌）",
+          "file": "省/甘肃/02-鸣沙山月牙泉.jpg",
+          "source_url": "https://img0.baidu.com/it/u=4224756499,2994949095&fm=253&fmt=auto&app=120&f=JPEG?w=824&h=800",
+          "hit_title": "鸣沙山月牙泉:沙漠中的诗与远方 🌅",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "张掖七彩丹霞",
+          "raw_title": "张掖七彩丹霞（张掖）",
+          "file": "省/甘肃/03-张掖七彩丹霞.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2021759530,534310484&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1165",
+          "hit_title": "甘肃张掖七彩丹霞地貌探秘",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光"
+          ]
+        },
+        {
+          "spot": "兰州牛肉面",
+          "raw_title": "兰州牛肉面",
+          "file": "省/甘肃/04-兰州牛肉面.jpg",
+          "source_url": "https://img0.baidu.com/it/u=2800390470,1444520466&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1044",
+          "hit_title": "马香远兰州牛肉面:西北风味的美食诱惑",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店",
+            "亲子游",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "城关区",
+          "raw_title": "城关区",
+          "file": "省/甘肃/05-城关区.jpg",
+          "source_url": "https://img2.baidu.com/it/u=1998146330,2415777089&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+          "hit_title": "甘肃兰州城关区:城乡融合促振兴 和美乡村入画来",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "购物娱乐"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "福建",
+      "category": "省",
+      "images": [
+        {
+          "spot": "鼓浪屿",
+          "raw_title": "鼓浪屿（厦门）",
+          "file": "省/福建/01-鼓浪屿.jpg",
+          "source_url": "https://img1.baidu.com/it/u=2842895121,198685563&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=644",
+          "hit_title": "厦门鼓浪屿一座仅188平方公里小岛一座值得你细细品味的岛屿",
+          "is_cover": true,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "厦门大学",
+          "raw_title": "厦门大学与南普陀寺（厦门）",
+          "file": "省/福建/02-厦门大学.jpg",
+          "source_url": "https://img1.baidu.com/it/u=2579658365,2364604323&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1044",
+          "hit_title": "厦门大学,位于繁华的市中心,却拥有着5a级风景区的宁静与美丽.",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "环岛路",
+          "raw_title": "环岛路、曾厝垵与集美学村（厦门）",
+          "file": "省/福建/03-环岛路.jpg",
+          "source_url": "https://img2.baidu.com/it/u=923535951,4049570795&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1044",
+          "hit_title": "厦门环岛路必打卡景点推荐!",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "购物娱乐",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "沙茶面",
+          "raw_title": "沙茶面",
+          "file": "省/福建/04-沙茶面.jpg",
+          "source_url": "https://img0.baidu.com/it/u=495225235,1156659241&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=546",
+          "hit_title": "厦门沙茶面祖传秘方分享",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "武夷山",
+          "raw_title": "武夷山（南平）",
+          "file": "省/福建/05-武夷山.jpg",
+          "source_url": "https://img1.baidu.com/it/u=1513040771,2168131605&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=653",
+          "hit_title": "福建南平武夷山一日游攻略",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "美食探店",
+            "户外探险"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "贵州",
+      "category": "省",
+      "images": [
+        {
+          "spot": "黄果树瀑布",
+          "raw_title": "黄果树瀑布（安顺）",
+          "file": "省/贵州/01-黄果树瀑布.jpg",
+          "source_url": "https://img0.baidu.com/it/u=2186615194,3220176259&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1054",
+          "hit_title": "贵州黄果树瀑布彩虹奇遇🌈仙境打卡",
+          "is_cover": true,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "荔波小七孔",
+          "raw_title": "荔波小七孔（黔南·荔波）",
+          "file": "省/贵州/02-荔波小七孔.jpg",
+          "source_url": "https://img1.baidu.com/it/u=2789937023,1854902486&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1044",
+          "hit_title": "贵州荔波小七孔景区必游景点全攻略",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光"
+          ]
+        },
+        {
+          "spot": "西江千户苗寨",
+          "raw_title": "西江千户苗寨（黔东南·雷山）",
+          "file": "省/贵州/03-西江千户苗寨.jpg",
+          "source_url": "https://img0.baidu.com/it/u=4241014171,402615402&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=737",
+          "hit_title": "西江千户苗寨:商业化与民族风情的碰撞",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "酸汤鱼",
+          "raw_title": "酸汤鱼",
+          "file": "省/贵州/04-酸汤鱼.jpg",
+          "source_url": "https://img0.baidu.com/it/u=519104762,56345268&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1081",
+          "hit_title": "🐟🍲 贵州酸汤鱼制作秘籍揭秘!",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "肇兴侗寨",
+          "raw_title": "肇兴侗寨（黔东南·黎平）",
+          "file": "省/贵州/05-肇兴侗寨.jpg",
+          "source_url": "https://img2.baidu.com/it/u=1192968957,1222198500&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=875",
+          "hit_title": "贵州肇兴侗寨:侗族文化的瑰宝",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "贵阳甲秀楼夜景",
+          "raw_title": "市中心",
+          "file": "省/贵州/06-贵阳甲秀楼夜景.jpg",
+          "source_url": "https://img0.baidu.com/it/u=3119388264,711561746&fm=253&fmt=auto&app=120&f=JPEG?w=757&h=1140",
+          "hit_title": "【交通】市中心步行可达,建议傍晚去看夜景 【必玩】甲秀楼,翠微园",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "观山湖区",
+          "raw_title": "观山湖区",
+          "file": "省/贵州/07-观山湖区.jpg",
+          "source_url": "https://img2.baidu.com/it/u=3168250513,3350115147&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=667",
+          "hit_title": "爽爽贵阳新十景·观山湖篇:7处宝藏地,带你邂逅城市温度~_贵州_自然",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "购物娱乐"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "辽宁",
+      "category": "省",
+      "images": [
+        {
+          "spot": "沈阳故宫",
+          "raw_title": "沈阳故宫",
+          "file": "省/辽宁/01-沈阳故宫.jpg",
+          "source_url": "https://img2.baidu.com/it/u=481215576,3933367869&fm=253&fmt=auto&app=120&f=JPEG?w=813&h=800",
+          "hit_title": "沈阳故宫:历史的瑰宝,文化的圣地",
+          "is_cover": true,
+          "confidence": "high",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "张学良旧居",
+          "raw_title": "张学良旧居（大帅府）",
+          "file": "省/辽宁/02-张学良旧居.jpg",
+          "source_url": "https://img0.baidu.com/it/u=675122838,1968340458&fm=253&fmt=auto&app=138&f=JPEG?w=746&h=500",
+          "hit_title": "秋日愈凉,\"宠客\"愈暖!张学良旧居新增系列服务伴你温暖赏秋",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "九一八历史博物馆",
+          "raw_title": "九一八历史博物馆（沈阳）",
+          "file": "省/辽宁/03-九一八历史博物馆.jpg",
+          "source_url": "https://img1.baidu.com/it/u=3165822150,3019948550&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=737",
+          "hit_title": "沈阳九一八历史博物馆:铭记历史,缅怀先烈",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "锅包肉",
+          "raw_title": "锅包肉",
+          "file": "省/辽宁/04-锅包肉.jpg",
+          "source_url": "https://img1.baidu.com/it/u=2131588088,620811630&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=737",
+          "hit_title": "辽阳美食推荐:辽麻餐厅的锅包肉和冻梨汁",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "大连滨海路",
+          "raw_title": "大连滨海路",
+          "file": "省/辽宁/05-大连滨海路.jpg",
+          "source_url": "https://img0.baidu.com/it/u=3708418279,3158098859&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1042",
+          "hit_title": "大连滨海路深度游:西段美景与必打卡景点",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "太原街/沈阳站",
+          "raw_title": "太原街/沈阳站",
+          "file": "省/辽宁/06-太原街_沈阳站.jpg",
+          "source_url": "https://img1.baidu.com/it/u=694850066,2955508554&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=631",
+          "hit_title": "沈阳太原街:回忆与美食的交汇点",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "购物娱乐"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "陕西",
+      "category": "省",
+      "images": [
+        {
+          "spot": "秦始皇兵马俑博物院",
+          "raw_title": "秦始皇兵马俑博物院",
+          "file": "省/陕西/01-秦始皇兵马俑博物院.jpg",
+          "source_url": "https://img0.baidu.com/it/u=3340042376,238729221&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=667",
+          "hit_title": "秦始皇帝陵博物院,世界第八大奇迹,兵马俑的壮观震撼人心.  2.",
+          "is_cover": true,
+          "confidence": "high",
+          "interests": [
+            "历史文化",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "陕西历史博物馆",
+          "raw_title": "陕西历史博物馆",
+          "file": "省/陕西/02-陕西历史博物馆.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2726150593,230956307&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=588",
+          "hit_title": "探秘陕西历史博物馆:西安的璀璨明珠   陕西历史博物馆,作为中国第一",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "西安城墙",
+          "raw_title": "西安城墙",
+          "file": "省/陕西/03-西安城墙.jpg",
+          "source_url": "https://img2.baidu.com/it/u=1006656561,2782126343&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1045",
+          "hit_title": "西安城墙:13.7公里的历史与风景",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "肉夹馍",
+          "raw_title": "肉夹馍",
+          "file": "省/陕西/04-肉夹馍.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2238899273,107848661&fm=253&fmt=auto&app=138&f=JPEG?w=659&h=500",
+          "hit_title": "肉夹馍:陕西的独特风味 🍜",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "大雁塔与大唐不夜城",
+          "raw_title": "大雁塔与大唐不夜城",
+          "file": "省/陕西/05-大雁塔与大唐不夜城.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2685688634,1012653680&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=667",
+          "hit_title": "大唐不夜城位于陕西省西安市雁塔区的大雁塔脚下,北起大雁塔南广场,南",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "华山",
+          "raw_title": "华山",
+          "file": "省/陕西/06-华山.jpg",
+          "source_url": "https://img0.baidu.com/it/u=4120970617,1377024868&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=885",
+          "hit_title": "陕西华山天险长空栈道,全程十分钟非常刺激",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "太白山",
+          "raw_title": "太白山",
+          "file": "省/陕西/07-太白山.jpg",
+          "source_url": "https://img1.baidu.com/it/u=787477169,767554906&fm=253&fmt=auto&app=120&f=JPEG?w=1097&h=800",
+          "hit_title": "太白山登顶攻略:秦岭之巅的挑战与美景",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "青海",
+      "category": "省",
+      "images": [
+        {
+          "spot": "青海湖",
+          "raw_title": "青海湖（二郎剑 / 环湖沿线）",
+          "file": "省/青海/01-青海湖.jpg",
+          "source_url": "https://img0.baidu.com/it/u=2088834950,3435055888&fm=253&fmt=auto&app=138&f=JPEG?w=759&h=500",
+          "hit_title": "青海湖:青藏高原的蓝色明珠 🌊 青海湖,位于青藏高原的东北部,是",
+          "is_cover": true,
+          "confidence": "high",
+          "interests": [
+            "自然风光"
+          ]
+        },
+        {
+          "spot": "茶卡盐湖",
+          "raw_title": "茶卡盐湖",
+          "file": "省/青海/02-茶卡盐湖.jpg",
+          "source_url": "https://img1.baidu.com/it/u=3978317986,606379448&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=875",
+          "hit_title": "茶卡盐湖:天空之镜的形成之旅 茶卡盐湖,这颗镶嵌在青海省海西蒙古",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "塔尔寺",
+          "raw_title": "塔尔寺",
+          "file": "省/青海/03-塔尔寺.jpg",
+          "source_url": "https://img1.baidu.com/it/u=2764226901,441743899&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=640",
+          "hit_title": "青海必打卡景点——塔尔寺",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "坎布拉国家森林公园",
+          "raw_title": "坎布拉国家森林公园",
+          "file": "省/青海/04-坎布拉国家森林公园.jpg",
+          "source_url": "https://img0.baidu.com/it/u=2033032212,1405421561&fm=253&fmt=auto&app=138&f=JPEG?w=763&h=500",
+          "hit_title": "雅丹地貌,则以其坎布拉国家森林公园坎布拉青海坎布拉国家森林公园",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "亲子游",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "察尔汗盐湖",
+          "raw_title": "察尔汗盐湖",
+          "file": "省/青海/05-察尔汗盐湖.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2971394767,110347361&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1044",
+          "hit_title": "察尔汗盐湖:自然滤镜下的绝美景色 🌊💚",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "黑龙江",
+      "category": "省",
+      "images": [
+        {
+          "spot": "中央大街",
+          "raw_title": "中央大街（哈尔滨）",
+          "file": "省/黑龙江/01-中央大街.jpg",
+          "source_url": "https://img1.baidu.com/it/u=3418618466,2047676620&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
+          "hit_title": "黑龙江哈尔滨:城中有两特别的国家4a景区:索菲亚教堂 中央大街",
+          "is_cover": true,
+          "confidence": "high",
+          "interests": [
+            "美食探店",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "圣索菲亚大教堂",
+          "raw_title": "圣索菲亚大教堂（哈尔滨）",
+          "file": "省/黑龙江/02-圣索菲亚大教堂.jpg",
+          "source_url": "https://img1.baidu.com/it/u=2528517186,2176249311&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=1108",
+          "hit_title": "哈尔滨圣索菲亚教堂 这是黑龙江省哈尔滨市唯一一座俄式建筑,大气而",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "哈尔滨冰雪大世界",
+          "raw_title": "哈尔滨冰雪大世界",
+          "file": "省/黑龙江/03-哈尔滨冰雪大世界.jpg",
+          "source_url": "https://img1.baidu.com/it/u=3073330248,2283877099&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500",
+          "hit_title": "以上图片:2025年1月12日,游客在黑龙江哈尔滨冰雪大世界游玩.",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光"
+          ]
+        },
+        {
+          "spot": "镜泊湖",
+          "raw_title": "镜泊湖（牡丹江宁安市）",
+          "file": "省/黑龙江/04-镜泊湖.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2740952844,1767005419&fm=253&fmt=auto&app=120&f=JPEG?w=1199&h=800",
+          "hit_title": "牡丹江镜泊湖:冬日冰瀑奇观与满族\"海东青\"的勇猛传说",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "亚布力滑雪旅游度假区",
+          "raw_title": "亚布力滑雪旅游度假区（尚志市）",
+          "file": "省/黑龙江/05-亚布力滑雪旅游度假区.jpg",
+          "source_url": "https://img2.baidu.com/it/u=3059446373,4075539819&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=653",
+          "hit_title": "哈尔滨亚布力滑雪小木屋温泉全攻略",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "内蒙古",
+      "category": "自治区",
+      "images": [
+        {
+          "spot": "呼伦贝尔大草原",
+          "raw_title": "呼伦贝尔大草原（海拉尔 / 陈巴尔虎旗）",
+          "file": "自治区/内蒙古/01-呼伦贝尔大草原.jpg",
+          "source_url": "https://img0.baidu.com/it/u=3509041356,2595516548&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1183",
+          "hit_title": "呼伦贝尔大草原:自由与野性的交响曲 🌾",
+          "is_cover": true,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "额尔古纳湿地",
+          "raw_title": "额尔古纳湿地（根河湿地）",
+          "file": "自治区/内蒙古/02-额尔古纳湿地.jpg",
+          "source_url": "https://img2.baidu.com/it/u=3892597138,4198250053&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500",
+          "hit_title": "秋风起,内蒙古额尔古纳湿地盛景再现  #微博影像年# #旅途见山河",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光"
+          ]
+        },
+        {
+          "spot": "莫尔道嘎国家森林公园",
+          "raw_title": "莫尔道嘎国家森林公园",
+          "file": "自治区/内蒙古/03-莫尔道嘎国家森林公园.jpg",
+          "source_url": "https://img2.baidu.com/it/u=3456037098,295161665&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+          "hit_title": "位于额尔古纳市的莫尔道嘎国家森林公园成为今年秋季旅游的热门目的地",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "亲子游",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "满洲里",
+          "raw_title": "满洲里（套娃广场 / 国门）",
+          "file": "自治区/内蒙古/04-满洲里.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2558033330,2281632212&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
+          "hit_title": "内蒙古满洲里市",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "手把肉",
+          "raw_title": "手把肉",
+          "file": "自治区/内蒙古/05-手把肉.jpg",
+          "source_url": "https://img0.baidu.com/it/u=2083331811,3225312944&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=725",
+          "hit_title": "内蒙古手把肉:舌尖上的草原珍馐",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "宁夏",
+      "category": "自治区",
+      "images": [
+        {
+          "spot": "沙坡头",
+          "raw_title": "沙坡头（中卫）",
+          "file": "自治区/宁夏/01-沙坡头.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2811546160,485254442&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=650",
+          "hit_title": "🌟 宁夏沙坡头:黄河与沙漠的奇观之旅 🌟",
+          "is_cover": true,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "美食探店",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "镇北堡西部影城",
+          "raw_title": "镇北堡西部影城",
+          "file": "自治区/宁夏/02-镇北堡西部影城.jpg",
+          "source_url": "https://img1.baidu.com/it/u=2240927084,117122533&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=731",
+          "hit_title": "镇北堡西部影城:东方好莱坞的传奇",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "购物娱乐",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "西夏王陵",
+          "raw_title": "西夏王陵",
+          "file": "自治区/宁夏/03-西夏王陵.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2056109594,758300069&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1044",
+          "hit_title": "探秘银川的\"东方金字塔\":西夏王陵之旅",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "广西",
+      "category": "自治区",
+      "images": [
+        {
+          "spot": "漓江",
+          "raw_title": "漓江（桂林—阳朔精华段）",
+          "file": "自治区/广西/01-漓江.jpg",
+          "source_url": "https://img1.baidu.com/it/u=1293419782,1622801643&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1044",
+          "hit_title": "桂林漓江必游景点全攻略🌄",
+          "is_cover": true,
+          "confidence": "high",
+          "interests": [
+            "自然风光"
+          ]
+        },
+        {
+          "spot": "兴坪古镇",
+          "raw_title": "兴坪古镇与老寨山",
+          "file": "自治区/广西/02-兴坪古镇.jpg",
+          "source_url": "https://img2.baidu.com/it/u=4292971023,2587376564&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=842",
+          "hit_title": "兴坪古镇:古丝绸之路的璀璨明珠",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "历史文化",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "遇龙河",
+          "raw_title": "遇龙河",
+          "file": "自治区/广西/03-遇龙河.jpg",
+          "source_url": "https://img1.baidu.com/it/u=2289614295,4006311297&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=652",
+          "hit_title": "桂林遇龙河漂流避坑全攻略,必看!",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "桂林米粉",
+          "raw_title": "桂林米粉",
+          "file": "自治区/广西/04-桂林米粉.jpg",
+          "source_url": "https://img2.baidu.com/it/u=520508600,2951434001&fm=253&fmt=auto&app=120&f=JPEG?w=824&h=800",
+          "hit_title": "桂林米粉:简单又美味的家常做法",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "北海银滩与涠洲岛",
+          "raw_title": "北海银滩与涠洲岛",
+          "file": "自治区/广西/05-北海银滩与涠洲岛.jpg",
+          "source_url": "https://img1.baidu.com/it/u=640598566,1053184096&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+          "hit_title": "广西北海必去三大景点  北海银滩的银光细沙,涠洲岛的火山奇观与老街",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "南宁青秀山与三街两巷",
+          "raw_title": "南宁青秀山与三街两巷",
+          "file": "自治区/广西/06-南宁青秀山与三街两巷.jpg",
+          "source_url": "https://img0.baidu.com/it/u=3805851634,2026690341&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=639",
+          "hit_title": "南宁必游:青秀山与三街两巷风光",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "购物娱乐",
+            "户外探险"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "新疆",
+      "category": "自治区",
+      "images": [
+        {
+          "spot": "喀纳斯景区",
+          "raw_title": "喀纳斯景区（含禾木、白哈巴）",
+          "file": "自治区/新疆/01-喀纳斯景区.jpg",
+          "source_url": "https://img2.baidu.com/it/u=749287728,1842959694&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1044",
+          "hit_title": "🌄喀纳斯探秘之旅",
+          "is_cover": true,
+          "confidence": "high",
+          "interests": [
+            "购物娱乐",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "天山天池",
+          "raw_title": "天山天池",
+          "file": "自治区/新疆/02-天山天池.png",
+          "source_url": "https://img1.baidu.com/it/u=1221378440,75756931&fm=253&fmt=auto&app=138&f=PNG?w=500&h=887",
+          "hit_title": "新疆天山天池徒步攻略:必打卡景点",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "吐鲁番",
+          "raw_title": "吐鲁番（火焰山、葡萄沟、交河故城、坎儿井）",
+          "file": "自治区/新疆/03-吐鲁番.jpg",
+          "source_url": "https://img2.baidu.com/it/u=3586272126,696703649&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1044",
+          "hit_title": "吐鲁番老城区:感受原汁原味的生活",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "美食探店",
+            "户外探险"
+          ]
+        },
+        {
+          "spot": "喀什古城",
+          "raw_title": "喀什古城",
+          "file": "自治区/新疆/04-喀什古城.jpg",
+          "source_url": "https://img1.baidu.com/it/u=585538297,3230784370&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1044",
+          "hit_title": "一场不可错过的风情之旅 如果说不到喀什不算到新疆,那么不到喀什古城",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "乌鲁木齐大巴扎与新疆博物馆",
+          "raw_title": "乌鲁木齐大巴扎与新疆博物馆",
+          "file": "自治区/新疆/05-乌鲁木齐大巴扎与新疆博物馆.jpg",
+          "source_url": "https://img0.baidu.com/it/u=1259840868,849902421&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1066",
+          "hit_title": "乌鲁木齐大巴扎:古道新颜,繁华再现",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化",
+            "美食探店",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "天山区",
+          "raw_title": "天山区",
+          "file": "自治区/新疆/06-天山区.jpg",
+          "source_url": "https://img1.baidu.com/it/u=2912896129,826113739&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=667",
+          "hit_title": "仿佛穿越到了欧洲建筑小区图片高清乌鲁木齐天山区图片新疆天山区建筑",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "购物娱乐"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "西藏",
+      "category": "自治区",
+      "images": [
+        {
+          "spot": "布达拉宫",
+          "raw_title": "布达拉宫（拉萨）",
+          "file": "自治区/西藏/01-布达拉宫.jpg",
+          "source_url": "https://img2.baidu.com/it/u=79007227,77146925&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=1068",
+          "hit_title": "🏰 布达拉宫:西藏的神秘与庄严",
+          "is_cover": true,
+          "confidence": "high",
+          "interests": [
+            "历史文化"
+          ]
+        },
+        {
+          "spot": "大昭寺",
+          "raw_title": "大昭寺（拉萨）",
+          "file": "自治区/西藏/02-大昭寺.jpg",
+          "source_url": "https://img0.baidu.com/it/u=3078429841,254629059&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=867",
+          "hit_title": "西藏大昭寺:朝圣者的圣地与心灵的净土",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化",
+            "亲子游"
+          ]
+        },
+        {
+          "spot": "八廓街",
+          "raw_title": "八廓街（拉萨）",
+          "file": "自治区/西藏/03-八廓街.jpg",
+          "source_url": "https://img2.baidu.com/it/u=2433201002,4168054025&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=898",
+          "hit_title": "拉萨八廓街:蓝天白云下的圣洁之地",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "历史文化",
+            "购物娱乐"
+          ]
+        },
+        {
+          "spot": "纳木错",
+          "raw_title": "纳木错（拉萨·当雄 / 那曲）",
+          "file": "自治区/西藏/04-纳木错.jpg",
+          "source_url": "https://img0.baidu.com/it/u=467977131,1592520894&fm=253&fmt=auto&app=120&f=JPEG?w=1214&h=800",
+          "hit_title": "西藏纳木错:圣象天门的美景震撼",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光"
+          ]
+        },
+        {
+          "spot": "藏式甜茶与酥油茶",
+          "raw_title": "藏式甜茶与酥油茶",
+          "file": "自治区/西藏/05-藏式甜茶与酥油茶.jpg",
+          "source_url": "https://img2.baidu.com/it/u=3204536394,2456580101&fm=253&fmt=auto&app=120&f=JPEG?w=813&h=800",
+          "hit_title": "西藏酥油茶:一种独特的待客之道 🍵",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "美食探店"
+          ]
+        },
+        {
+          "spot": "林芝",
+          "raw_title": "林芝（含雅鲁藏布大峡谷、南迦巴瓦峰）",
+          "file": "自治区/西藏/06-林芝.jpg",
+          "source_url": "https://img1.baidu.com/it/u=2793389597,1708088501&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889",
+          "hit_title": "西藏自驾活动 | 林芝桃花盛宴深度游,拒绝走马观花",
+          "is_cover": false,
+          "confidence": "high",
+          "interests": [
+            "自然风光",
+            "亲子游",
+            "户外探险"
+          ]
+        }
+      ]
+    }
+  ]
+}
