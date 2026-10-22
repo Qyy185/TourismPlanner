@@ -1,0 +1,25 @@
+# 核心框架（LangChain 1.x + LangGraph 运行时）
+langchain>=1.2.0
+langchain-core>=1.2.0
+langchain-classic>=1.0.0
+langgraph>=1.1.0
+
+# 模型与向量库集成
+langchain-openai>=1.1.0
+langchain-community>=0.4.0
+langchain-chroma>=1.1.0
+langchain-text-splitters>=1.1.0
+chromadb>=1.5.0
+
+# Web 交互界面
+gradio>=6.0.0
+
+# 分享海报图片渲染（core/poster.py）
+Pillow>=10.0.0
+# 海报上的分享二维码（core/poster.py；纯 Python、零依赖，云端沙箱最好装）
+segno>=1.6.0
+
+# 工具库
+python-dotenv>=1.2.0
+requests>=2.31.0
+tiktoken>=0.12.0
