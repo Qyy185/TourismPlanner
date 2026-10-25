@@ -6,6 +6,7 @@ Gradio Web 交互入口
 再把检索到的真实资料融合进方案，并在末尾展示命中的知识库来源。
 """
 import base64
+import glob
 import json
 import os
 import random
@@ -90,13 +91,20 @@ def _load_destinations():
         imgs = [im for im in entry.get("images", []) if im.get("file")]
         if not imgs:
             continue
-        guide = os.path.join(kb_root, entry["category"], "%s-主攻略.md" % entry["region"])
+        # 主攻略文件名带版本号与前缀（如「智慧旅游规划助手—四川—主攻略—v1.0—20260921.md」），
+        # 不能用「四川-主攻略.md」拼路径——那样 34 个省一个都读不到，
+        # 别名集全空 → match_destination 只认行政区名 → 图册区永远空白。
+        # 用 glob 按「区名 + 主攻略」匹配，文件名怎么改都不会坏。
+        region_dir = os.path.join(kb_root, entry["category"])
+        hits = glob.glob(os.path.join(region_dir, "*%s*主攻略*.md" % entry["region"]))
+        fulltext = ""
+        if hits:
+            try:
+                with open(hits[0], encoding="utf-8") as f:
+                    fulltext = f.read()
+            except OSError:
+                fulltext = ""
         aliases = set()
-        try:
-            with open(guide, encoding="utf-8") as f:
-                fulltext = f.read()
-        except OSError:
-            fulltext = ""
         # 只取「本地相关」的小节标题做别名：热门景点 / 特色美食 / 住宿建议 / 交通指南。
         # 不用全文包含匹配——交通章节常提到邻省城市（如重庆攻略里写"高铁到成都"），
         # 全文匹配会把「成都」误配到重庆。
