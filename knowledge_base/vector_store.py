@@ -10,9 +10,11 @@
 不再使用已弃用的 langchain_community.vectorstores.Chroma。
 """
 import os
+import re
 import shutil
 
 from langchain_chroma import Chroma
+from langchain_core.documents import Document
 from langchain_openai import OpenAIEmbeddings
 
 # 向量库持久化目录（相对于项目根目录）
@@ -43,6 +45,49 @@ def get_embeddings():
     )
 
 
+def _split_oversized(docs, max_chars=7000):
+    """把超过 embedding 接口长度上限的片段再切一刀。
+
+    DashScope text-embedding-v3 单条输入上限 8192 字符。
+    知识库下沉到城市粒度后，个别「城市总览」文件（一个城市 12 个景点全在一段里）
+    会超限，直接调接口会报 InvalidParameter。
+    这里按段落边界二次切分，超长段落再按字符硬切，尽量不破坏语义。
+    """
+    out = []
+    overflow = 0
+    for d in docs:
+        text = d.page_content or ""
+        if len(text) <= max_chars:
+            out.append(d)
+            continue
+        overflow += 1
+        # 优先按空行（段落）切
+        paras = re.split(r'\n\s*\n', text)
+        cur = []
+        cur_len = 0
+        for p in paras:
+            if len(p) > max_chars:
+                # 单段超长 → 按字符硬切
+                if cur:
+                    out.append(Document(page_content='\n\n'.join(cur), metadata=d.metadata))
+                    cur, cur_len = [], 0
+                for j in range(0, len(p), max_chars):
+                    out.append(Document(page_content=p[j:j + max_chars], metadata=d.metadata))
+                continue
+            add = len(p) + (2 if cur else 0)
+            if cur_len + add > max_chars:
+                out.append(Document(page_content='\n\n'.join(cur), metadata=d.metadata))
+                cur, cur_len = [p], len(p)
+            else:
+                cur.append(p)
+                cur_len += add
+        if cur:
+            out.append(Document(page_content='\n\n'.join(cur), metadata=d.metadata))
+    if overflow:
+        print(f"✂️  有 {overflow} 个片段超长，已二次切分（上限 {max_chars} 字符）")
+    return out
+
+
 def build_vector_store(docs, persist_directory=PERSIST_DIR, reset=True):
     """
     构建旅游知识库向量存储
@@ -61,6 +106,8 @@ def build_vector_store(docs, persist_directory=PERSIST_DIR, reset=True):
     if reset and os.path.exists(persist_directory):
         shutil.rmtree(persist_directory)
         print(f"🧹 已清空旧的向量库目录 {persist_directory}")
+
+    docs = _split_oversized(docs)
 
     print(f"🔄 开始构建旅游向量库，共 {len(docs)} 个文档片段")
     embeddings = get_embeddings()

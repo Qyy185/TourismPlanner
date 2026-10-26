@@ -29,6 +29,7 @@ from core.agent import (
 )
 from core.flexible import build_flexible
 from core.ical import build_ics, parse_events, plan_events
+from core.multi_route import parse_destinations
 from core.packing import build_packing
 from core.poster import build_poster
 from core.render import build_timeline_html, md_to_html
@@ -118,6 +119,55 @@ def _load_destinations():
 
 
 _load_destinations()
+
+
+# ---------------------------------------------------------------------------
+# 城市景点密度：多城路线分配住宿夜数时用
+# ---------------------------------------------------------------------------
+_SPOT_DENSITY = {}
+
+
+def _load_spot_density():
+    """从生成好的「城市总览」文件里统计各城市的景点数。
+
+    景点多的地方值得多住几天，景点少的路过即可——
+    这条规则让「住几晚」有据可依，而不是均分。
+    """
+    global _SPOT_DENSITY
+    density = {}
+    gen_dir = os.path.join(
+        os.path.dirname(os.path.dirname(_ASSETS_DIR)), "knowledge_base", "destinations", "_generated"
+    )
+    if not os.path.isdir(gen_dir):
+        _SPOT_DENSITY = {}
+        return
+    for name in sorted(os.listdir(gen_dir)):
+        if not name.endswith(".md") or "城市总览" not in name:
+            continue
+        try:
+            with open(os.path.join(gen_dir, name), encoding="utf-8") as f:
+                cur = None
+                for line in f:
+                    if line.startswith("## "):
+                        h = line[3:].strip()
+                        cur = None if (h.startswith("全省") or h.startswith("城市索引")) else h
+                        if cur:
+                            density.setdefault(cur, 0)
+                    elif line.startswith("### ") and cur:
+                        density[cur] += 1
+        except OSError:
+            continue
+    _SPOT_DENSITY = density
+
+
+def _spot_density():
+    """返回各城市景点数；未加载时按需加载一次"""
+    if not _SPOT_DENSITY:
+        _load_spot_density()
+    return _SPOT_DENSITY
+
+
+_load_spot_density()
 
 
 def match_destination(user_input):
@@ -1679,11 +1729,41 @@ def build_query(destination, days, budget, people, interests, additional_request
     填了出发地时，会把「往返路费估算 + 预算扣减口径」一并写进需求：
     否则模型看到「人均预算 3000」会按整趟行程去分配，等于把往返大交通漏算或重复算，
     与页面上给用户的「已从预算里扣掉路费」自相矛盾。
+
+    **多目的地**：填了多个城市时，交给 core.multi_route 编排，
+    把「城市顺序 + 停留夜数 + 城际交通」作为硬约束写进需求，
+    模型只负责填内容，不允许自行改顺序与天数。
     """
     days = int(days or 1)
     nights = max(days - 1, 0)
     has_fare = bool(fare_info and fare_info.get("ok"))
-    lines = [f"请为我制定一个「{destination}」的 {days} 天 {nights} 晚旅游方案。"]
+
+    # ---- 多目的地编排（先于单目的地分支）----
+    multi = None
+    try:
+        from core.multi_route import build_multi_route
+        parsed = parse_destinations(destination)
+        if len(parsed) > 1:
+            multi = build_multi_route(
+                destination, days=days, interests=interests,
+                budget=budget, people=people, origin=origin,
+                spot_density=_spot_density(),
+            )
+    except Exception as exc:      # 编排失败不应拖垮整个生成流程
+        print("[multi_route] 编排失败，降级为单目的地：", exc)
+        multi = None
+
+    if multi and multi.get("ok"):
+        lines = [
+            "请为我制定一条**多城串联**的 %d 天旅游方案，涉及以下城市：%s" % (
+                days, "、".join(c for c, _ in multi["cities"])),
+            "",
+            multi["notes"],
+            "",
+        ]
+    else:
+        lines = [f"请为我制定一个「{destination}」的 {days} 天 {nights} 晚旅游方案。"]
+
     if origin and has_fare:
         lines.append(f"- 出发地：{origin}")
         lines.append(f"- 往返大交通（系统已估算，仅供参考）：{fare_summary(fare_info)}")
@@ -1707,6 +1787,12 @@ def build_query(destination, days, budget, people, interests, additional_request
     ]
     if not (origin and has_fare):
         lines.append("- 说明：用户未提供出发地，请勿臆测其出发城市；预算部分请注明「不含出发地往返大交通」。")
+    if multi and multi.get("ok"):
+        lines.append(
+            "- **多城口径**：行程按上面给出的城市顺序与停留夜数执行；"
+            "城际交通的时间与票价已由系统算出，直接引用，不要另算一套。"
+            "预算里要**单列城际交通费**（各城之间的大交通），与各城内部的当地花费分开。"
+        )
     # 弹性保障在用户消息里再钉一次：系统提示里的硬性结构，模型偶尔会为守字数砍掉，
     # 用户消息里的显式提醒服从性明显更高（实测缺失后补上这条即可回归）。
     lines.append(
@@ -2048,7 +2134,15 @@ with gr.Blocks(title="智能旅游规划助手") as demo:
 
     with gr.Row():
         with gr.Column(scale=1):
-            destination = gr.Textbox(label="目的地", placeholder="例如：成都、西安、三亚")
+            destination = gr.Textbox(
+                label="目的地（可填多个，用逗号分隔）",
+                placeholder="单一：例如：成都、西安、三亚　｜　多城：哈尔滨, 齐齐哈尔, 五大连池",
+                info=(
+                    "填多个城市即进入**多城路线规划**模式：系统会按地理邻近排出不绕路的顺序，"
+                    "按城际耗时分配各城停留天数，并给出城际交通方式、时长与票价。"
+                    "也可以写成「哈尔滨2晚, 齐齐哈尔1晚」直接指定停留。"
+                ),
+            )
             # 出发地是**选填**：填了才算往返路费、才从预算里扣；不填就完全不介入
             origin = gr.Textbox(
                 label="出发地（选填）",
