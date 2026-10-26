@@ -1,32 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-知识库平铺生成器 · 第二步（v2）：城际连接表
+知识库平铺生成器 · 第二步（v3）：城际连接表
 
-解决导师例子里的核心知识缺口：「城与城之间怎么连」。
-用真实地理与铁路数据，不编造：
-  · 距离：haversine 球面距离 × 铁路绕行系数 1.27
-  · 铁路可达性：core/rail_network.py 的真实高铁干线表
-    （同干线 → 直达；不同干线 → 需换乘；一端有站 → 公路接驳；都无 → 公路/航空）
-  · 时长：按交通方式推算，含中转与接驳余量
-  · 票价：沿用 transport.py 的三档定价口径
+用 core/intercity.py 的统一判定，生成每省一份城际连接表。
+距离、时长、方式、票价、铁路可达性全部来自真实地理与铁路数据。
 """
 import io, os, re, glob, collections, sys
 
 ROOT = r'D:\毕业\智慧旅游规划助手'
 sys.path.insert(0, ROOT)
-from core.transport import _CITY, _haversine_km, _hsr_price, _flight_price, _round5
-from core.rail_network import rail_link, RAIL_LINES, transfer_hub, has_rail_reachable
+from core.transport import _CITY, _haversine_km, _PROVINCE_CAPITAL
+from core.intercity import conn, fmt_h, price_label
+from core.rail_network import RAIL_LINES
 
 KB = os.path.join(ROOT, 'knowledge_base', 'destinations')
 OUT = os.path.join(KB, '_generated')
 VERSION = 'v1.0'
 DATE = '20261025'
-
-_RAIL_FACTOR = 1.27
-ROAD_MAX = 200          # km 以内公路直达
-HSR_MAX = 1200         # km 以内铁路可覆盖
-_TRANSFER = {'road': 0.3, 'hsr': 0.8, 'flight': 2.0}
-_SPEED = {'road': 65, 'hsr': 240, 'flight': 700}
 
 _PROV_CENTER = {}
 
@@ -46,96 +36,6 @@ def build_prov_center():
         ys = [_CITY[c][1] for c in cs]
         mx, my = sum(xs) / len(xs), sum(ys) / len(ys)
         _PROV_CENTER[p] = min(cs, key=lambda c: ((_CITY[c][0] - mx) ** 2 + (_CITY[c][1] - my) ** 2))
-
-
-def pick_mode(rail_km, link):
-    """结合铁路可达性决定交通方式"""
-    kind = link['kind']
-    if kind == 'direct':
-        return 'hsr'
-    if kind == 'transfer':
-        return 'hsr' if rail_km <= HSR_MAX else 'flight'
-    if kind == 'partial':
-        # 一端需公路接驳：缺接驳站说明那端根本没有铁路，只能走公路或航空
-        if not link.get('rail_reachable_b'):
-            return 'road' if rail_km <= ROAD_MAX else 'flight'
-        return 'hsr' if rail_km <= HSR_MAX else 'flight'
-    # none：两地均无铁路车站
-    if rail_km <= ROAD_MAX:
-        return 'road'
-    if rail_km <= HSR_MAX:
-        return 'road'      # 长途客车
-    return 'flight'
-
-
-def mode_name(mode, link):
-    if mode == 'road':
-        if link['kind'] == 'none' and link.get('note', '').find('均未登记高铁站') >= 0:
-            return '长途客车 / 自驾'
-        return '公路 / 城际大巴'
-    if mode == 'hsr':
-        if link['kind'] == 'direct':
-            return '高铁（%s直达）' % link['line'] if link['line'] else '高铁直达'
-        return '高铁（需换乘）'
-    return '飞机（需机场接驳）'
-
-
-def estimate_conn(a, b):
-    la, lo, _ = _CITY[a]
-    lb, lop, _ = _CITY[b]
-    air_km = _haversine_km((la, lo), (lb, lop))
-    rail_km = air_km * _RAIL_FACTOR
-    link = rail_link(a, b)
-    link['rail_reachable_b'] = has_rail_reachable(b)
-    link['rail_reachable_a'] = has_rail_reachable(a)
-    mode = pick_mode(rail_km, link)
-    hours = rail_km / _SPEED[mode] + _TRANSFER[mode]
-
-    # 公路接驳段：景区级节点到其接驳站，必须单独计入
-    hub_a = transfer_hub(a)
-    hub_b = transfer_hub(b)
-    if mode == 'hsr':
-        if hub_a and hub_a in _CITY:
-            d = _haversine_km((la, lo), (_CITY[hub_a][0], _CITY[hub_a][1]))
-            hours += d / _SPEED['road']
-        if hub_b and hub_b in _CITY:
-            d = _haversine_km((lb, lop), (_CITY[hub_b][0], _CITY[hub_b][1]))
-            hours += d / _SPEED['road']
-
-    if link['kind'] == 'transfer':
-        hours += 1.2          # 换乘候车余量
-    if link['kind'] == 'partial':
-        hours += 1.5          # 公路接驳 + 候车
-    if mode == 'hsr':
-        price = _hsr_price(rail_km)
-    elif mode == 'road':
-        price = _round5(max(rail_km * 0.28, 30))
-    else:
-        price = _flight_price(air_km)
-    return {
-        'air_km': round(air_km), 'rail_km': round(rail_km),
-        'mode': mode, 'mode_name': mode_name(mode, link),
-        'hours': round(hours, 1), 'price': price, 'link': link,
-    }
-
-
-def price_text(info):
-    p = info['price']
-    if isinstance(p, tuple):
-        return '%d—%d 元' % (round(p[0]), round(p[1]))
-    return '%d 元' % round(p)
-
-
-def fmt_h(hours):
-    h = int(hours)
-    m = int(round((hours - h) * 60))
-    if m == 60:
-        h += 1; m = 0
-    if h and m:
-        return '%d 小时 %d 分' % (h, m)
-    if h:
-        return '%d 小时' % h
-    return '%d 分钟' % m
 
 
 def province_cities(prov):
@@ -165,17 +65,18 @@ def gen_province(prov, cities):
     L.append('')
     L.append('> 本文件记录本省各城市之间、以及本省与邻省之间的**城际交通连接**：距离、时长、方式、票价。')
     L.append('> 三份配套文件各管一件事：')
-    L.append('> - 「{省}—城市总览」讲**在这座城玩什么**；')
+    L.append('> - 「%s—城市总览」讲**在这座城玩什么**；' % prov)
     L.append('> - 本文件讲**怎么从这座城到下一座城**；')
-    L.append('> - 「{省}—跨城路线」讲**按几天分配、怎么串成一条线**。')
+    L.append('> - 「%s—跨城路线」讲**按几天分配、怎么串成一条线**。' % prov)
     L.append('> ')
-    L.append('> **数据口径**：距离为球面直线距离乘以铁路绕行系数 1.27（全国均值）；')
-    L.append('> 铁路可达性依据真实高铁干线（见 core/rail_network.py），')
-    L.append('> 标注「直达 / 需换乘 / 需公路接驳」；时长含中转与接驳余量；')
-    L.append('> 票价为二等座 / 客车 / 经济舱参考价，以实际购票为准。')
+    L.append('> **数据口径**：')
+    L.append('> - 距离：球面直线距离 × 1.27（铁路绕行系数）；近程公路另按 1.25 折算；')
+    L.append('> - 铁路可达性：依据真实高铁干线（见 `core/rail_network.py`），')
+    L.append('>   标注「直达 / 需换乘 / 需公路接驳」；')
+    L.append('> - 时长：含中转换乘余量与两端公路接驳段；')
+    L.append('> - 票价：二等座 / 客车 / 经济舱参考价，**以实际购票为准**。')
     L.append('')
 
-    # 省内
     L.append('## 省内城市连接')
     L.append('')
     if len(cities) < 2:
@@ -186,15 +87,14 @@ def gen_province(prov, cities):
         rows = []
         for i, a in enumerate(cities):
             for b in cities[i + 1:]:
-                rows.append((a, b, estimate_conn(a, b)))
-        rows.sort(key=lambda r: r[2]['rail_km'])
-        for a, b, info in rows:
+                rows.append((a, b, conn(a, b)))
+        rows.sort(key=lambda r: r[2]['km'])
+        for a, b, c in rows:
             L.append('| %s | %s | 约 %d km | %s | 约 %s | %s | %s |'
-                     % (a, b, info['rail_km'], info['mode_name'],
-                        fmt_h(info['hours']), price_text(info), info['link']['note']))
+                     % (a, b, c['km'], c['mode_name'], fmt_h(c['hours']),
+                        price_label(c['price']), c['note']))
         L.append('')
 
-    # 跨省
     L.append('## 跨省连接')
     L.append('')
     nb = neighbors(prov)
@@ -215,13 +115,12 @@ def gen_province(prov, cities):
                     if (a, b) in seen:
                         continue
                     seen.add((a, b))
-                    info = estimate_conn(a, b)
+                    c = conn(a, b)
                     L.append('| %s | %s | %s | 约 %d km | %s | 约 %s | %s | %s |'
-                             % (a, b, p2, info['rail_km'], info['mode_name'],
-                                fmt_h(info['hours']), price_text(info), info['link']['note']))
+                             % (a, b, p2, c['km'], c['mode_name'], fmt_h(c['hours']),
+                                price_label(c['price']), c['note']))
         L.append('')
 
-    # 卫星城
     cap = _PROV_CENTER.get(prov)
     if cap and cap in _CITY:
         near_scenic = []
@@ -239,7 +138,7 @@ def gen_province(prov, cities):
             L.append('| 节点 | 距%s | 交通方式 | 约需时间 | 说明 |' % cap)
             L.append('|---|---|---|---|---|')
             for c, d in sorted(near_scenic, key=lambda x: x[1]):
-                info = estimate_conn(cap, c)
+                info = conn(cap, c)
                 L.append('| %s | 约 %d km | %s | 约 %s | 与%s连成一日往返线 |'
                          % (c, round(d), info['mode_name'], fmt_h(info['hours']), cap))
             L.append('')
@@ -265,7 +164,7 @@ def main():
         report.append((prov, len(cities), rows))
 
     print('=' * 70)
-    print('城际连接表生成完成（v2 · 用真实高铁干线判定可达性）')
+    print('城际连接表生成完成（v3 · 统一走 core/intercity.py）')
     print('=' * 70)
     print('%-10s %8s %10s' % ('省份', '城市数', '连接行数'))
     print('-' * 70)
@@ -279,8 +178,11 @@ def main():
     print('=== 抽样：黑龙江（导师例子的省份）===')
     f = os.path.join(OUT, '智慧旅游规划助手—黑龙江—城际连接表—v1.0—%s.md' % DATE)
     for line in io.open(f, encoding='utf-8').read().split('\n'):
-        if '|' in line and ('齐齐哈尔' in line or '五大连池' in line) and '---' not in line:
-            print('  ', line[:150])
+        if line.startswith('| ') and '---' not in line:
+            for k in ('哈尔滨', '齐齐哈尔', '五大连池', '伊春', '扎龙', '双峰林场'):
+                if k in line:
+                    print('  ', line[:145])
+                    break
 
 
 if __name__ == '__main__':

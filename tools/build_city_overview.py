@@ -156,6 +156,8 @@ def main():
     problems = []
 
     for path in sorted(glob.glob(os.path.join(KB, '*', '*主攻略*.md'))):
+        # 省级文件的省名取自文件名第 2 段；市县级独立攻略（如「齐齐哈尔—主攻略」）
+        # 直接把文件名里的地名当省名处理，走同一套城市归集逻辑。
         prov, overview, city_spots, others, capital, main_cities, reasons = parse_province(path)
         tot_reasons.update(reasons)
         if capital not in _CITY:
