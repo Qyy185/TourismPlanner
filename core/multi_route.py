@@ -36,6 +36,7 @@ if ROOT not in sys.path:
 from core.transport import _CITY, resolve_place
 from core.intercity import conn, fmt_h, price_label
 from core.rail_network import transfer_hub
+from core.route_order import order_cities as route_order
 
 # 兴趣标签 → 匹配用关键词（用于在路线库里找匹配的主线）
 _INTEREST_HINTS = {
@@ -176,46 +177,14 @@ def allocate_nights(cities, total_days, user_nights=None, spot_density=None):
 # ------------------------------------------------------------------
 # 3. 城市顺序（不绕路）
 # ------------------------------------------------------------------
-def order_cities(cities, fixed_order=None):
-    """按地理邻近排一条不绕路的顺序。
+def order_cities(cities, fixed_order=False):
+    """按地理邻近排一条不绕路的顺序（见 core.route_order）。
 
     fixed_order 为 True 时保持用户输入顺序（用户已经想好了路线）。
     """
-    if fixed_order or len(cities) <= 2:
+    if fixed_order:
         return list(cities)
-
-    def d(a, b):
-        la, lo, _ = _CITY[a]
-        lb, lop, _ = _CITY[b]
-        import math
-        R = 6371.0
-        p1, p2 = math.radians(la), math.radians(lb)
-        dp = math.radians(lb - la)
-        dl = math.radians(lop - lo)
-        x = math.sin(dp / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dl / 2) ** 2
-        return 2 * R * math.asin(min(1, math.sqrt(x)))
-
-    rest = list(cities)
-    cur = rest.pop(0)
-    path = [cur]
-    while rest:
-        nxt = min(rest, key=lambda c: d(cur, c))
-        rest.remove(nxt)
-        path.append(nxt)
-        cur = nxt
-
-    def total(p):
-        return sum(d(p[i], p[i + 1]) for i in range(len(p) - 1))
-    improved = True
-    while improved:
-        improved = False
-        for i in range(1, len(path) - 2):
-            for j in range(i + 1, len(path) - 1):
-                cand = path[:i] + path[i:j + 1][::-1] + path[j + 1:]
-                if total(cand) < total(path) - 1:
-                    path = cand
-                    improved = True
-    return path
+    return route_order(cities)
 
 
 # ------------------------------------------------------------------

@@ -12,6 +12,7 @@
 import os
 import re
 import shutil
+import time
 
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
@@ -42,6 +43,10 @@ def get_embeddings():
         check_embedding_ctx_length=False,
         # 压小单次请求的文本条数，规避接口批量上限
         chunk_size=EMBED_BATCH_SIZE,
+        # 服务端偶发 500（Embedding_pipeline_Error）时自动重试，
+        # 避免整库重建因单次抖动失败。退避 2s → 4s → 8s。
+        max_retries=5,
+        timeout=120,
     )
 
 
@@ -115,21 +120,52 @@ def build_vector_store(docs, persist_directory=PERSIST_DIR, reset=True):
     total_batches = (len(docs) + WRITE_BATCH_SIZE - 1) // WRITE_BATCH_SIZE
 
     # 分批次写入，避免单次请求过大
+    # 单批失败（服务端偶发 500）时退避重试；仍失败则拆成小批继续，
+    # 避免整库重建因一次抖动前功尽弃。
+    failed = 0
     for i in range(0, len(docs), WRITE_BATCH_SIZE):
         batch = docs[i:i + WRITE_BATCH_SIZE]
         print(f"  正在处理第 {i // WRITE_BATCH_SIZE + 1}/{total_batches} 批...")
 
-        if vectordb is None:
-            vectordb = Chroma.from_documents(
-                documents=batch,
-                embedding=embeddings,
-                persist_directory=persist_directory,
-                collection_name=COLLECTION_NAME,
-            )
-        else:
-            vectordb.add_documents(documents=batch)
+        ok = False
+        for attempt in range(3):
+            try:
+                if vectordb is None:
+                    vectordb = Chroma.from_documents(
+                        documents=batch,
+                        embedding=embeddings,
+                        persist_directory=persist_directory,
+                        collection_name=COLLECTION_NAME,
+                    )
+                else:
+                    vectordb.add_documents(documents=batch)
+                ok = True
+                break
+            except Exception as exc:
+                wait = 2 ** (attempt + 1)
+                print(f"    ⚠️ 第 {attempt + 1} 次失败（{type(exc).__name__}），{wait}s 后重试")
+                if attempt < 2:
+                    time.sleep(wait)
+        if not ok:
+            # 拆成单条再试
+            print("    ⚠️ 整批失败，改为逐条写入")
+            for one in batch:
+                try:
+                    if vectordb is None:
+                        vectordb = Chroma.from_documents(
+                            documents=[one], embedding=embeddings,
+                            persist_directory=persist_directory,
+                            collection_name=COLLECTION_NAME,
+                        )
+                    else:
+                        vectordb.add_documents(documents=[one])
+                except Exception as exc2:
+                    failed += 1
+                    print(f"    ❌ 单条仍失败，已跳过：{type(exc2).__name__}")
 
     # Chroma 0.4.x 起由客户端自动持久化，无需手动调用 persist()
+    if failed:
+        print(f"⚠️  有 {failed} 个片段最终写入失败（已跳过）")
     print(f"✅ 旅游向量库构建完成！共写入 {len(docs)} 个片段，已保存到 {persist_directory}")
     return vectordb
 

@@ -82,6 +82,12 @@ def conn(a, b):
 
     返回 dict：km / hours / mode / mode_name / price / note / line / legs
     """
+    # 少数城市不在坐标库（如台中、高雄），无法算距离——返回未知连接
+    if a not in _CITY or b not in _CITY:
+        return {'km': 0, 'hours': 0.0, 'mode': 'road',
+                'mode_name': '需现场确认', 'price': 0,
+                'note': '%s 或 %s 无坐标数据，交通方式需另行确认' % (a, b),
+                'line': '', 'legs': []}
     la, lo, _ = _CITY[a]
     lb, lop, _ = _CITY[b]
     air_km = _haversine_km((la, lo), (lb, lop))

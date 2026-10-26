@@ -18,6 +18,7 @@ ROOT = r'D:\毕业\智慧旅游规划助手'
 sys.path.insert(0, ROOT)
 from core.transport import _CITY, _haversine_km, _PROVINCE_CAPITAL
 from core.intercity import conn, fmt_h, price_label
+from core.route_order import order_cities
 
 KB = os.path.join(ROOT, 'knowledge_base', 'destinations')
 OUT = os.path.join(KB, '_generated')
@@ -45,37 +46,6 @@ def load_city_spots(prov):
             elif line.startswith('### ') and cur:
                 merged[cur].append(line[4:].strip())
     return merged
-
-
-def order_cities(cities):
-    """最近邻 + 2-opt：排一条不绕路的顺序"""
-    if len(cities) <= 2:
-        return list(cities)
-
-    def d(a, b):
-        return _haversine_km((_CITY[a][0], _CITY[a][1]), (_CITY[b][0], _CITY[b][1]))
-
-    rest = list(cities)
-    cur = rest.pop(0)
-    path = [cur]
-    while rest:
-        nxt = min(rest, key=lambda c: d(cur, c))
-        rest.remove(nxt)
-        path.append(nxt)
-        cur = nxt
-
-    def total(p):
-        return sum(d(p[i], p[i + 1]) for i in range(len(p) - 1))
-    improved = True
-    while improved:
-        improved = False
-        for i in range(1, len(path) - 2):
-            for j in range(i + 1, len(path) - 1):
-                cand = path[:i] + path[i:j + 1][::-1] + path[j + 1:]
-                if total(cand) < total(path) - 1:
-                    path = cand
-                    improved = True
-    return path
 
 
 def allocate_nights(cities, total_days, spots_map):

@@ -1540,6 +1540,98 @@ def export_plan_ics(output, meta):
 # ---------------------------------------------------------------------------
 _HISTORY_SHOW = 20        # 下拉里展示的条数
 _LAST_PLAN_ID = None      # 最近一次成功生成的方案 id（供分享/海报按钮免再查）
+_ADJ_STATE = {"alloc": None, "destination": None, "days": None}
+
+
+# ---------------------------------------------------------------------------
+# 方案微调（导师反馈第 4 点）
+# ---------------------------------------------------------------------------
+def _current_alloc(destination, days):
+    """按当前表单重新算出编排结果（微调基于它，不依赖历史状态）"""
+    try:
+        from core.multi_route import build_multi_route
+        parsed = parse_destinations(destination)
+        if len(parsed) < 2:
+            return None
+        return build_multi_route(
+            destination, days=days, interests=None,
+            spot_density=_spot_density(),
+        )
+    except Exception as exc:
+        print("[adjust] 编排失败:", exc)
+        return None
+
+
+def _adjust_result_html(res, ok_msg=""):
+    """把微调结果渲染成 Markdown"""
+    if not res.get("ok"):
+        return "⚠️ %s" % res.get("error", "调整失败")
+    lines = ["### ✅ %s" % (ok_msg or "已调整")]
+    lines.append("")
+    for ch in res.get("changes", []):
+        lines.append("- %s" % ch)
+    lines.append("")
+    lines.append("**调整后的路线**：%s" % " → ".join(
+        "%s（%d 晚）" % (c, n) for c, n in res["cities"]))
+    lines.append("")
+    lines.append("**总行程**：%d 天 ｜ 路上时间占比约 %d%%"
+                 % (res["actual_days"], res["transit_pct"]))
+    lines.append("")
+    lines.append("<details><summary>查看逐日安排</summary>")
+    lines.append("")
+    for d in res["days"]:
+        lines.append("- **Day%d** %s" % (d["day"], d["brief"]))
+    lines.append("")
+    lines.append("</details>")
+    lines.append("")
+    lines.append("> 点上面的「生成旅游方案」按钮，用新结构重新生成完整方案。")
+    return "\n".join(lines)
+
+
+def adjust_swap(day_no, place, destination, days):
+    """微调：换掉某一天的城市"""
+    base = _current_alloc(destination, days)
+    if not base:
+        return "⚠️ 当前目的地不是多城写法（需要用逗号分隔多个城市），无法微调。"
+    try:
+        from core.route_adjust import swap_day
+        res = swap_day(base["cities"], int(day_no or 1), place)
+        _ADJ_STATE["alloc"] = res["cities"]
+        return _adjust_result_html(res, "已把第 %d 天换成「%s」" % (int(day_no or 1), place))
+    except Exception as exc:
+        return "⚠️ %s" % exc
+
+
+def adjust_nights(city, delta_text, destination, days):
+    """微调：调整某城停留天数"""
+    base = _current_alloc(destination, days)
+    if not base:
+        return "⚠️ 当前目的地不是多城写法（需要用逗号分隔多个城市），无法微调。"
+    sign = -1 if str(delta_text).startswith("少") else 1
+    n = 1
+    if "2" in str(delta_text):
+        n = 2
+    try:
+        from core.route_adjust import adjust_nights as _adj
+        res = _adj(base["cities"], city, sign * n)
+        _ADJ_STATE["alloc"] = res["cities"]
+        return _adjust_result_html(res, "已调整「%s」的停留" % city)
+    except Exception as exc:
+        return "⚠️ %s" % exc
+
+
+def adjust_reorder(destination, days):
+    """微调：重排顺序消除折返"""
+    base = _current_alloc(destination, days)
+    if not base:
+        return "⚠️ 当前目的地不是多城写法（需要用逗号分隔多个城市），无法微调。"
+    try:
+        from core.route_adjust import reorder
+        res = reorder(base["cities"])
+        _ADJ_STATE["alloc"] = res["cities"]
+        return _adjust_result_html(res, "已重排城市顺序")
+    except Exception as exc:
+        return "⚠️ %s" % exc
 
 
 def after_generate(output, origin, destination, days, budget, people, interests,
@@ -2188,6 +2280,30 @@ with gr.Blocks(title="智能旅游规划助手") as demo:
                 submit_btn = gr.Button("生成旅游方案", variant="primary")
                 clear_btn = gr.Button("清空所有输入", variant="secondary")
 
+            # ---- 方案微调（多城模式）----
+            # 导师反馈第 4 点「给出初步方案后可以微调」。
+            # 三个受约束的局部重算：换这天 / 调整停留天数 / 重排顺序。
+            # 不是让模型自由发挥——只改结构（顺序、天数、城市），
+            # 景点与描述由模型按新结构重新填。
+            with gr.Accordion("微调方案（多城路线可用）", open=False):
+                gr.Markdown(
+                    "生成后可以在这里做**局部调整**：换掉某一天的城市、"
+                    "给某城多留几晚、或者重排顺序消除折返。\n\n"
+                    "每次调整都会重新计算城际交通与天数分配，并说明改了什么、为什么。"
+                )
+                with gr.Row():
+                    adj_day = gr.Number(label="第几天", value=1, minimum=1, precision=0,
+                                        info="要换掉第几天的安排")
+                    adj_place = gr.Textbox(label="换成哪里", placeholder="例如：牡丹江、扎龙")
+                adj_swap_btn = gr.Button("换这天", variant="secondary")
+                with gr.Row():
+                    adj_city = gr.Textbox(label="调整哪个城市", placeholder="例如：齐齐哈尔")
+                    adj_delta = gr.Radio(label="调整方式", choices=["多留 1 晚", "少留 1 晚",
+                                                                  "多留 2 晚", "少留 2 晚"])
+                adj_nights_btn = gr.Button("调整停留", variant="secondary")
+                adj_reorder_btn = gr.Button("重排顺序（消除折返）", variant="secondary")
+                adj_result = gr.Markdown("")
+
         with gr.Column(scale=2):
             # 待机图带放在右栏**最顶部**：首屏（不用滚动）就能看到全国实景，
             # 点图片直接回填目的地。此前它被放在两个栏之外（整页最底部），
@@ -2460,6 +2576,26 @@ with gr.Blocks(title="智能旅游规划助手") as demo:
                 fare_mode, profile],
         outputs=[budget_bar, timeline_box, packing_box, flex_box, history_dd,
                  gen_meta],
+    )
+
+    # 方案微调：三个受约束的局部重算，纯规则，不碰模型
+    adj_swap_btn.click(
+        fn=adjust_swap,
+        inputs=[adj_day, adj_place, destination, days],
+        outputs=[adj_result],
+        api_visibility="undocumented",
+    )
+    adj_nights_btn.click(
+        fn=adjust_nights,
+        inputs=[adj_city, adj_delta, destination, days],
+        outputs=[adj_result],
+        api_visibility="undocumented",
+    )
+    adj_reorder_btn.click(
+        fn=adjust_reorder,
+        inputs=[destination, days],
+        outputs=[adj_result],
+        api_visibility="undocumented",
     )
 
     # 导出：Markdown / Word（下载按钮的 fn 返回文件路径即触发浏览器下载）
