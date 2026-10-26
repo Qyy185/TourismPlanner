@@ -217,7 +217,10 @@ def build_multi_route(destination_text, days, interests=None, budget=None,
         seen.add(name)
         cities_in.append(name)
         if nights is not None:
-            user_nights[name] = max(1, nights - 1)   # 用户说的「N晚」= N 晚住宿
+            # 用户说的「N晚」= N 晚住宿，与 alloc 里的 nights 语义一致，不再减 1。
+            # （之前多减了 1，导致「齐齐哈尔6晚」被当成 5 晚，
+            #   微调显示 12 天、重新生成却只有 10 天。）
+            user_nights[name] = max(1, nights)
 
     total_days = int(days or 3)
     if total_days < 2:

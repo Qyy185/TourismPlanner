@@ -1540,12 +1540,21 @@ def export_plan_ics(output, meta):
 # ---------------------------------------------------------------------------
 _HISTORY_SHOW = 20        # 下拉里展示的条数
 _LAST_PLAN_ID = None      # 最近一次成功生成的方案 id（供分享/海报按钮免再查）
-_ADJ_STATE = {"alloc": None, "destination": None, "days": None}
+_ADJ_STATE = {"alloc": None, "dest_text": None, "days": None}
 
 
 # ---------------------------------------------------------------------------
 # 方案微调（导师反馈第 4 点）
 # ---------------------------------------------------------------------------
+def _alloc_to_text(alloc):
+    """把 [(城市, 晚数)] 编码回目的地文本，供重新生成时复用。
+
+    例：[(齐齐哈尔, 4), (五大连池, 1), (哈尔滨, 4)]
+    → 「齐齐哈尔4晚, 五大连池1晚, 哈尔滨4晚」
+    """
+    return ", ".join("%s%d晚" % (c, n) for c, n in alloc)
+
+
 def _current_alloc(destination, days):
     """按当前表单重新算出编排结果（微调基于它，不依赖历史状态）"""
     try:
@@ -1584,7 +1593,7 @@ def _adjust_result_html(res, ok_msg=""):
     lines.append("")
     lines.append("</details>")
     lines.append("")
-    lines.append("> 点上面的「生成旅游方案」按钮，用新结构重新生成完整方案。")
+    lines.append("> 点下面的「用新结构重新生成」按钮，直接按调整后的路线出完整方案。")
     return "\n".join(lines)
 
 
@@ -1597,6 +1606,8 @@ def adjust_swap(day_no, place, destination, days):
         from core.route_adjust import swap_day
         res = swap_day(base["cities"], int(day_no or 1), place)
         _ADJ_STATE["alloc"] = res["cities"]
+        _ADJ_STATE["dest_text"] = _alloc_to_text(res["cities"])
+        _ADJ_STATE["days"] = res["actual_days"]
         return _adjust_result_html(res, "已把第 %d 天换成「%s」" % (int(day_no or 1), place))
     except Exception as exc:
         return "⚠️ %s" % exc
@@ -1615,6 +1626,8 @@ def adjust_nights(city, delta_text, destination, days):
         from core.route_adjust import adjust_nights as _adj
         res = _adj(base["cities"], city, sign * n)
         _ADJ_STATE["alloc"] = res["cities"]
+        _ADJ_STATE["dest_text"] = _alloc_to_text(res["cities"])
+        _ADJ_STATE["days"] = res["actual_days"]
         return _adjust_result_html(res, "已调整「%s」的停留" % city)
     except Exception as exc:
         return "⚠️ %s" % exc
@@ -1629,9 +1642,31 @@ def adjust_reorder(destination, days):
         from core.route_adjust import reorder
         res = reorder(base["cities"])
         _ADJ_STATE["alloc"] = res["cities"]
+        _ADJ_STATE["dest_text"] = _alloc_to_text(res["cities"])
+        _ADJ_STATE["days"] = res["actual_days"]
         return _adjust_result_html(res, "已重排城市顺序")
     except Exception as exc:
         return "⚠️ %s" % exc
+
+
+def apply_adjust_and_generate(origin, budget, people, interests, additional_request,
+                               profile, mode):
+    """用微调后的新结构重新生成完整方案。
+
+    直接复用 travel_planner —— 把调整后的城市序列与晚数编码回目的地文本
+    （如「齐齐哈尔4晚, 五大连池1晚, 哈尔滨4晚」），
+    由 build_query 重新解析出同一套编排约束，模型按新结构填内容。
+    """
+    dest_text = _ADJ_STATE.get("dest_text")
+    if not dest_text:
+        yield ("还没有做过微调。先在上面调整一次，再点这个按钮。",
+               gr.update(value="", visible=False), gr.update(), gr.update(),
+               gr.update(), gr.update())
+        return
+    days = _ADJ_STATE.get("days") or 3
+    for item in travel_planner(origin, dest_text, days, budget, people,
+                               interests, additional_request, profile, mode):
+        yield item
 
 
 def after_generate(output, origin, destination, days, budget, people, interests,
@@ -2303,6 +2338,7 @@ with gr.Blocks(title="智能旅游规划助手") as demo:
                 adj_nights_btn = gr.Button("调整停留", variant="secondary")
                 adj_reorder_btn = gr.Button("重排顺序（消除折返）", variant="secondary")
                 adj_result = gr.Markdown("")
+                adj_apply_btn = gr.Button("用新结构重新生成方案", variant="primary")
 
         with gr.Column(scale=2):
             # 待机图带放在右栏**最顶部**：首屏（不用滚动）就能看到全国实景，
@@ -2595,6 +2631,20 @@ with gr.Blocks(title="智能旅游规划助手") as demo:
         fn=adjust_reorder,
         inputs=[destination, days],
         outputs=[adj_result],
+        api_visibility="undocumented",
+    )
+    # 用调整后的新结构重新出完整方案（复用 travel_planner，只是换了目的地文本）
+    adj_apply_btn.click(
+        fn=apply_adjust_and_generate,
+        inputs=[origin, budget, people, interests, additional_request, profile, fare_mode],
+        outputs=[output, fare_box, gallery, strip_out, gallery_region],
+        api_visibility="undocumented",
+    ).then(
+        fn=after_generate,
+        inputs=[output, origin, destination, days, budget, people, interests,
+                fare_mode, profile],
+        outputs=[budget_bar, timeline_box, packing_box, flex_box, history_dd,
+                 gen_meta],
         api_visibility="undocumented",
     )
 

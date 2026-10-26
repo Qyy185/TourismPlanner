@@ -137,6 +137,12 @@ def allocate_nights(cities, total_days, user_nights=None, density=None):
     used = sum(fixed.values())
     left = max(nights_total - used, len(flexible))
     if not flexible:
+        # 用户把每城的晚数都指定了，但总和少于「总天数 - 1」——
+        # 多出来的夜晚补给景点最多的城市（按密度挑），保证总天数不缩水
+        if left > 0 and cities:
+            density_map = density or {}
+            target = max(cities, key=lambda c: max(density_map.get(c, 1), 1))
+            fixed[target] = fixed.get(target, 1) + left
         return [(c, fixed[c]) for c in cities]
 
     weights = [max((density or {}).get(c, 1), 1) for c in flexible]
