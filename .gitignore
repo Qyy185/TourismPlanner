@@ -10,6 +10,9 @@ venv/
 
 # 向量库是可重建产物，运行 python init_kb.py 即可生成
 chroma_db/
+# 重建前的旧库备份（体积大且无价值）
+chroma_db_broken_*/
+chroma_db_old*/
 
 # IDE / 运行时
 .idea/
