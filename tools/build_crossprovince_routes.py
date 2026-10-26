@@ -24,6 +24,7 @@ if ROOT not in sys.path:
 from core.transport import _CITY, _haversine_km, _PROVINCE_CAPITAL
 from core.intercity import conn, fmt_h, price_label
 from core.route_order import order_cities
+from core.route_days import allocate_nights as _alloc_nights
 
 KB = os.path.join(ROOT, 'knowledge_base', 'destinations')
 OUT = os.path.join(KB, '_generated')
@@ -65,23 +66,8 @@ def province_center(prov, cities):
 
 
 def allocate_nights(cities, total_days, density):
-    n = len(cities)
-    nights_total = max(total_days - 1, n)
-    long_legs = sum(1 for i in range(n - 1) if conn(cities[i], cities[i + 1])['hours'] > 4)
-    budget = max(nights_total - long_legs, n)
-    weights = [max(density.get(c, 1), 1) for c in cities]
-    sumw = sum(weights)
-    nights = [max(1, round(budget * w / sumw)) for w in weights]
-    diff = budget - sum(nights)
-    i = 0
-    while diff != 0 and nights:
-        j = i % len(nights)
-        if diff > 0:
-            nights[j] += 1; diff -= 1
-        elif nights[j] > 1:
-            nights[j] -= 1; diff += 1
-        i += 1
-    return list(zip(cities, nights))
+    """分配住宿夜数（口径见 core.route_days.allocate_nights）"""
+    return _alloc_nights(cities, total_days, None, density)
 
 
 def build_route(cities, total_days, density, title, provs):

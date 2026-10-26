@@ -22,6 +22,7 @@ if ROOT not in sys.path:
 from core.transport import _CITY, resolve_place
 from core.intercity import conn, fmt_h, price_label
 from core.route_order import order_cities
+from core.route_days import build_days
 
 
 class AdjustError(Exception):
@@ -32,44 +33,8 @@ class AdjustError(Exception):
 # 内部：把「城市 + 晚数」变成逐日骨架
 # ------------------------------------------------------------------
 def _build_days(alloc):
-    """alloc: [(city, nights), ...] → 逐日骨架列表"""
-    day_list = []
-    day = 1
-    legs = []
-    for i, (city, nights) in enumerate(alloc):
-        if i > 0:
-            prev = alloc[i - 1][0]
-            c = conn(prev, city)
-            legs.append((prev, city, c))
-            day_list.append({
-                'day': day, 'type': 'transfer', 'from': prev, 'to': city,
-                'mode': c['mode_name'], 'km': c['km'],
-                'hours': c['hours'], 'hours_text': fmt_h(c['hours']),
-                'price': price_label(c['price']), 'note': c['note'],
-                'legs': c.get('legs', []),
-                'brief': '%s → %s，%s，约 %d km，%s，参考票价 %s；'
-                         '抵达后安排半天游览%s，傍晚入住' % (
-                             prev, city, c['mode_name'], c['km'], fmt_h(c['hours']),
-                             price_label(c['price']), city),
-            })
-        else:
-            day_list.append({
-                'day': day, 'type': 'arrive', 'city': city,
-                'brief': '抵达%s后安排半天慢游，首日不排满，留出安顿时间' % city,
-            })
-        day += 1
-        for k in range(max(0, nights - 1)):
-            day_list.append({
-                'day': day, 'type': 'full', 'city': city,
-                'brief': '%s 完整游览日（含机动时段与雨天备选）' % city,
-            })
-            day += 1
-    last = alloc[-1][0]
-    day_list.append({
-        'day': day, 'type': 'return', 'city': last,
-        'brief': '上午安排%s的收尾游览或采购伴手礼，下午返程' % last,
-    })
-    return day_list, legs, day
+    """alloc: [(city, nights), ...] → 逐日骨架（走 core.route_days 统一口径）"""
+    return build_days(alloc)
 
 
 def _notes(alloc, days, legs, transit_h, changes):

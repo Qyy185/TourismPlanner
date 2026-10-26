@@ -37,6 +37,7 @@ from core.transport import _CITY, resolve_place
 from core.intercity import conn, fmt_h, price_label
 from core.rail_network import transfer_hub
 from core.route_order import order_cities as route_order
+from core.route_days import build_days, allocate_nights as _alloc_nights
 
 # 兴趣标签 → 匹配用关键词（用于在路线库里找匹配的主线）
 _INTEREST_HINTS = {
@@ -116,62 +117,8 @@ def resolve_destinations(text):
 # 2. 天数分配
 # ------------------------------------------------------------------
 def allocate_nights(cities, total_days, user_nights=None, spot_density=None):
-    """分配各城住宿夜数。
-
-    优先级：
-      1. 用户明确指定的晚数优先，其余按密度分配
-      2. 城际耗时 >4h 的段落额外占半天，从总额里扣
-      3. 剩余按景点密度分配
-
-    校验关系：总天数 = sum(nights) + 1（末日返程）
-    """
-    n = len(cities)
-    if n == 0:
-        return []
-
-    # 城际占用
-    long_legs = 0
-    leg_info = []
-    for i in range(n - 1):
-        c = conn(cities[i], cities[i + 1])
-        leg_info.append(c)
-        if c['hours'] > 4:
-            long_legs += 1
-
-    nights_total = max(total_days - 1, n)
-    budget = max(nights_total - long_legs, n)
-
-    user_nights = user_nights or {}
-    fixed = {}
-    flexible = []
-    for c in cities:
-        if c in user_nights and user_nights[c] is not None:
-            fixed[c] = user_nights[c]
-        else:
-            flexible.append(c)
-
-    used = sum(fixed.values())
-    left = max(budget - used, len(flexible))
-    if not flexible:
-        return [(c, fixed[c]) for c in cities]
-
-    weights = [max((spot_density or {}).get(c, 1), 1) for c in flexible]
-    sumw = sum(weights)
-    alloc = {c: max(1, round(left * w / sumw)) for c, w in zip(flexible, weights)}
-    diff = left - sum(alloc.values())
-    i = 0
-    while diff != 0 and alloc:
-        k = list(alloc.keys())[i % len(alloc)]
-        if diff > 0:
-            alloc[k] += 1; diff -= 1
-        elif alloc[k] > 1:
-            alloc[k] -= 1; diff += 1
-        i += 1
-
-    out = []
-    for c in cities:
-        out.append((c, fixed.get(c, alloc.get(c, 1))))
-    return out
+    """分配各城住宿夜数（口径见 core.route_days.allocate_nights）"""
+    return _alloc_nights(cities, total_days, user_nights, spot_density)
 
 
 # ------------------------------------------------------------------
@@ -279,48 +226,8 @@ def build_multi_route(destination_text, days, interests=None, budget=None,
     ordered = order_cities(cities_in, fixed_order=keep_user_order)
     alloc = allocate_nights(ordered, total_days, user_nights, spot_density)
 
-    # 逐日骨架
-    day_list = []
-    day = 1
-    legs = []
-    for i, (city, nights) in enumerate(alloc):
-        if i > 0:
-            prev = alloc[i - 1][0]
-            c = conn(prev, city)
-            legs.append((prev, city, c))
-            # 移动日即到达日：半天在路上，半天在到达城市活动。
-            # 这里不能再额外占用一天，否则总天数会多算 (城市数-1) 天。
-            day_list.append({
-                'day': day, 'type': 'transfer',
-                'from': prev, 'to': city,
-                'mode': c['mode_name'], 'km': c['km'],
-                'hours': c['hours'], 'hours_text': fmt_h(c['hours']),
-                'price': price_label(c['price']), 'note': c['note'],
-                'legs': c.get('legs', []),
-                'brief': '%s → %s，%s，约 %d km，%s，参考票价 %s；'
-                         '抵达后安排半天游览%s，傍晚入住' % (
-                             prev, city, c['mode_name'], c['km'], fmt_h(c['hours']),
-                             price_label(c['price']), city),
-            })
-        else:
-            day_list.append({
-                'day': day, 'type': 'arrive', 'city': city,
-                'brief': '抵达%s，安排半天慢游，首日不排满，留出安顿时间' % city,
-            })
-        day += 1
-        for k in range(max(0, nights - 1)):
-            day_list.append({
-                'day': day, 'type': 'full', 'city': city,
-                'brief': '%s 完整游览日（含机动时段与雨天备选）' % city,
-            })
-            day += 1
-
-    last = alloc[-1][0]
-    day_list.append({
-        'day': day, 'type': 'return', 'city': last,
-        'brief': '上午%s收尾游览或采购伴手礼，下午返程' % last,
-    })
-    actual_days = day
+    # 逐日骨架（统一走 core.route_days，天数口径一致）
+    day_list, legs, actual_days = build_days(alloc)
 
     transit_h = sum(l[2]['hours'] for l in legs)
     notes = [
